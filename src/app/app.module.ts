@@ -27,6 +27,7 @@ const ROUTES: Route[] = [
   {path:'service', component:ServiceComponent},
   {path:'franchise', component:FranchiseComponent},
   {path:'user', component:UserComponent},
+  {path:'section', component:SectionComponent},
   {path:'**', component:PagenotfoundComponent},
 
 ];
