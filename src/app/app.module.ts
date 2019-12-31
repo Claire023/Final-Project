@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
-
+import { fakeBackendProvider } from './_helpers';
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SectionComponent } from './components/section/section.component';
@@ -15,8 +15,8 @@ import { OrderComponent } from './components/order/order.component';
 import { BookComponent } from './components/book/book.component';
 import { FranchiseComponent } from './components/franchise/franchise.component';
 import { UserComponent } from './components/user/user.component';
-
-
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -29,6 +29,9 @@ const ROUTES: Route[] = [
   {path:'user', component:UserComponent},
   {path:'section', component:SectionComponent},
   {path:'**', component:PagenotfoundComponent},
+  {path:'', redirectTo:'section'},
+  {path:'login', component:   LoginComponent},
+  {path:'register', component: RegisterComponent},
 
 ];
 
@@ -46,17 +49,22 @@ const ROUTES: Route[] = [
     PagenotfoundComponent,
     ServiceComponent,
     PagenotfoundComponent,
+    LoginComponent,
+    RegisterComponent,
 
-
-  
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    RouterModule.forRoot(ROUTES),
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    FormsModule,
+    RouterModule.forRoot(ROUTES)],
+
+    providers: [
+       
+    ],
+    bootstrap: [AppComponent],
+  
+   
 })
 export class AppModule {
 

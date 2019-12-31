@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faPepperHot} from '@fortawesome/free-solid-svg-icons';
 import { faImage, faFileSignature, faUtensils } from '@fortawesome/free-solid-svg-icons';
 
+
 @Component({
   selector: 'app-section',
   templateUrl: './section.component.html',
@@ -15,10 +16,14 @@ export class SectionComponent implements OnInit {
   faFileSignature = faFileSignature;
 
 
-  
-  
-  constructor() { }
 
+
+
+  
+  
+  constructor() {}
+
+ 
   ngOnInit() {
   }
 
