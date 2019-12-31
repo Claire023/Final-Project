@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
-import { fakeBackendProvider } from './_helpers';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
@@ -29,7 +28,6 @@ const ROUTES: Route[] = [
   {path:'user', component:UserComponent},
   {path:'section', component:SectionComponent},
   {path:'**', component:PagenotfoundComponent},
-  {path:'', redirectTo:'section'},
   {path:'login', component:   LoginComponent},
   {path:'register', component: RegisterComponent},
 
