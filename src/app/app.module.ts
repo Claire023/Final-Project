@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SectionComponent } from './components/section/section.component';
@@ -21,6 +26,7 @@ import { RegisterComponent } from './components/register/register.component';
 
 const ROUTES: Route[] = [
 
+  {path:'', component: SectionComponent},
   {path:'order', component: OrderComponent},
   {path:'book', component:BookComponent},
   {path:'service', component:ServiceComponent},
@@ -53,12 +59,14 @@ const ROUTES: Route[] = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(ROUTES)],
 
     providers: [
-       
+     
     ],
     bootstrap: [AppComponent],
   

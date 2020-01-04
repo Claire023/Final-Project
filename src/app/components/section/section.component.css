@@ -8,20 +8,41 @@ a {
     text-decoration:none;
     color:rgb(170, 63, 63);
 }
-/* 
-.intro {
-    background-image:url("/assets/images/Dashboard.jpg");
-    color:white;
-    
-} */
 
+
+.test2 {
+    position:relative; 
+    height:400px; 
+}
+
+.test3 {
+    position:absolute;
+    z-index:1;
+}
+
+
+.test4 {
+    position:absolute;
+    text-align: center;
+    top:50px; 
+    width:900px; 
+    height:400px;
+    z-index:2;
+    margin-left:auto;
+    margin-right:auto;
+    left:0;
+    right:0;
+    padding-left:25px;
+    padding-right:25px;
+    background-color: rgba(253, 253, 253, 0.9);
+}
 
 
 .main_image{
 
     max-width: 100%;
     height: auto;
-   
+     
 }
 
 
@@ -35,12 +56,17 @@ fa-icon {
 }
 
 
+#history {
+ padding-top:250px;
+}
+
+
+
  #drinks {
     /* background-image: url("/assets/images/drinks.jpeg");
     background-size: cover; */
     background-color:rgba(236, 212, 195, 0.5);
-  
- 
+
 }
  
 
@@ -53,7 +79,7 @@ fa-icon {
 
 
 
-#main {
+#plate {
     /* background: url("/assets/images/main.jpg");
     background-size:cover; */
      background-color:rgba(236, 212, 195, 0.5);
@@ -127,6 +153,5 @@ button {
 .contact {
    width:50%;
 }
-
 
 
