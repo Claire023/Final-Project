@@ -21,6 +21,7 @@ import { FranchiseComponent } from './components/franchise/franchise.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TestComponent } from './components/test/test.component';
 
 
 
@@ -33,10 +34,11 @@ const ROUTES: Route[] = [
   {path:'franchise', component:FranchiseComponent},
   {path:'user', component:UserComponent},
   {path:'section', component:SectionComponent},
-  {path:'**', component:PagenotfoundComponent},
   {path:'login', component:   LoginComponent},
   {path:'register', component: RegisterComponent},
-
+  {path:'test', component: TestComponent},
+  {path:'**', component:PagenotfoundComponent},
+  
 ];
 
 @NgModule({
@@ -55,6 +57,8 @@ const ROUTES: Route[] = [
     PagenotfoundComponent,
     LoginComponent,
     RegisterComponent,
+    TestComponent
+  
 
   ],
   imports: [
@@ -66,7 +70,7 @@ const ROUTES: Route[] = [
     RouterModule.forRoot(ROUTES)],
 
     providers: [
-     
+    
     ],
     bootstrap: [AppComponent],
   
