@@ -1,0 +1,48 @@
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
+        <p>Votre compte vous permet de reserver une table ou de commander directement sur notre site</p>
+  
+        <!-- form card login -->
+        <div class="card rounded-0">
+          <div  class="card-header">
+            <h3 class="mb-0">Nouveau Client?</h3>
+       
+          <div class="card-body">
+           <div class="alert alert-danger" *ngIf="error">
+             <p>{{ error }}</p>
+           </div>
+            <div *ngIf="isLoading" style="text-align: center;">
+              <app-loading-spinner></app-loading-spinner>
+            </div>
+
+            <form class="form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+                <div class="form-group">
+                    <label for="">Identifiant</label>
+                    <input ngModel type="text"  name="pseudo" class="form-control rounded-0" required maxlength="20">
+                  </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input ngModel type="text"  name="email" class="form-control rounded-0" required email>
+              </div>
+              <div class="form-group">
+                <label>Mot de passe</label>
+                <input ngModel type="password"  name="password" class="form-control rounded-0"  required minlength="6">
+              </div>
+              <div class="form-group">
+                <label>Confirmez votre mot de passe</label>
+                <input ngModel type="password"  name="passwordConfirm" class="form-control rounded-0"  required minlength="6">
+              </div>
+              <button  type="submit" class="btn btn-danger float-right" [disabled]="!authForm.valid">{{ isLoginMode ? 'Se Connecter' : 'S\'inscrire'}}</button>
+              <button  (click)="onSwitchMode()"  type="button" class="btn btn-danger float-right">{{ isLoginMode ? 'S\'inscrire' :  'Se Connecter' }}</button>
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+  
+      </div>
+    </div>
+  </div>
+

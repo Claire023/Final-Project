@@ -14,17 +14,16 @@ export class TestComponent implements OnInit {
   constructor(private userService:UserService) { }
 
   
-
   ngOnInit() {
    this.getUserList();
   }
 
-
+  
   getUserList(){
-    //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner pour  savoir quand ton traitemenbt arrives
+    //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour  savoir quand ton traitemenbt arrives
     this.userService.getUsers().subscribe(
       (users: User[]) => this.users = users
-    )
+   )
   }
 
 }

@@ -22,6 +22,8 @@ import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TestComponent } from './components/test/test.component';
+import { Test2Component } from './components/test2/test2.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 
 
@@ -57,7 +59,9 @@ const ROUTES: Route[] = [
     PagenotfoundComponent,
     LoginComponent,
     RegisterComponent,
-    TestComponent
+    TestComponent,
+    Test2Component,
+    LoadingSpinnerComponent
   
 
   ],

@@ -1,16 +1,49 @@
 
-            <nav class="navbar navbar-light"   style="background-color: rgb(170, 63, 63);">
+            <nav class="navbar  navbar-expand-lg  navbar-light"   style="background-color: rgb(170, 63, 63);">
+                    
+                                     <a class="navbar-brand" routerLink="/section" routerLinkActive="active" class="icon" href="nav-link"><fa-icon [icon]="faCoffee"></fa-icon></a>
+                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                       <span class="navbar-toggler-icon"></span>
+                                     </button>
+                                          
+                                          
+                                          <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                                          
+                                                <ul class="navbar-nav mr-auto">
+                                                      
+                                                      <li class="nav-item">
+                                                            <a routerLink="/section" routerLinkActive="active" href="nav-link">Menu</a>
+                                                      </li>
+                                                      <li class="nav-item">
+                                                            <a routerLink="/order" routerLinkActive="active" href="nav-link">Commander</a>
+                                                      </li>
+                                                      
+                                                      <li class="nav-item">
+                                                            <a routerLink="/book" routerLinkActive="active" href="nav-link">Réserver</a>
+                                                      </li>
+                                                      
+                                                      <li class="nav-item">
+                                                            <a routerLink="/service" routerLinkActive="active" href="nav-link">Traiteur</a>
+                                                      </li>
+                                                      
+                                                      <li class="nav-item">
+                                                            <a routerLink="/franchise" routerLinkActive="active" href="nav-link">Devenir Franchisé</a>
+                                                      </li>
+                                                      
+                                                      <li class="nav-item">
+                                                            <a routerLink="/section" routerLinkActive="active" href="nav-link" class="icon"><fa-icon [icon]="faSearchLocation"></fa-icon></a>
+                                                      </li>
+                                                      
+                                                      <li class="nav-item">
+                                                            <a routerLink="/user" routerLinkActive="active" href="nav-link" class="icon"><fa-icon [icon]="faUser"></fa-icon></a>
+                                                      </li>
+                                                      
+                                                </ul>    
+                                          </div>
+                                    </nav>
+                                    
 
-                  <a routerLink="section" class="icon"><fa-icon [icon]="faCoffee"></fa-icon></a>
-                  <a routerLink="section">Menu</a>
-                  <a routerLink="order">Commander</a>
-                  <a routerLink="book">Réserver</a>
-                  <a routerLink="service">Traiteur</a>
-                  <a routerLink="franchise">Devenir Franchisé</a>
-                  <a routerLink="section" href="#where" class="icon"><fa-icon [icon]="faSearchLocation"></fa-icon></a>
-                  <a routerLink="user" class="icon"><fa-icon [icon]="faUser"></fa-icon></a>
-                  
-            </nav>
+
 
 
 

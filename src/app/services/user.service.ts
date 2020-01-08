@@ -10,15 +10,14 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
-
   constructor(private http:HttpClient){}
   
-getUsers():Observable<User[]>{
+  getUsers():Observable<User[]>{
 
   return this.http.get<User[]>(`${environment.backUrl}?controller=user&action=getUserList`);
 
   }
 
-
-
 }
+
+
