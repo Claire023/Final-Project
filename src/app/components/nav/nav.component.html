@@ -35,14 +35,30 @@
                                                       <li class="nav-item">
                                                             <a routerLink="/section" routerLinkActive="active" href="nav-link" class="icon"><fa-icon [icon]="faSearchLocation"></fa-icon></a>
                                                       </li>
-                                                      
+<!--                                                       
                                                       <li class="nav-item">
                                                             <a routerLink="/user" routerLinkActive="active" href="nav-link" class="icon"><fa-icon [icon]="faUser"></fa-icon></a>
                                                       </li>
+                                                       -->
+                                                
 
-                                                      <li *ngIf="isAuthenticated">
+                                                          <div class="dropdown">
+                                                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+                                                                  <fa-icon [icon]="faUser"></fa-icon>
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                              <button class="dropdown-item" type="button" routerLink="/login" routerLinkActive="active" href="nav-link">Connexion</button>
+                                                              <button class="dropdown-item" type="button" routerLink="/register" routerLinkActive="active" href="nav-link">Inscription</button>
+                                    
+                                                            </div>
+                                                          </div>
+
+
+                                                        
+
+                                                      <!-- <li *ngIf="isAuthenticated">
                                                             <a href="" (click)="onLogout()">Deconnexion</a>
-                                                      </li>
+                                                      </li> -->
                                                       
                                                 </ul>    
                                           </div>

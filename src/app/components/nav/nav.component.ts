@@ -27,15 +27,15 @@ export class NavComponent implements OnInit {
 
 
   ngOnInit() {
-    this.userSub = this.auth.user.subscribe(user => {
-      this.isAuthenticated = !!user;
+    // this.userSub = this.auth.user.subscribe(user => {
+    //   this.isAuthenticated = !!user;
 
-    });
+    // });
   }
 
-  onLogout() {
-    this.auth.logout();
-  }
+  // onLogout() {
+  //   this.auth.logout();
+  // }
 
 
   ngOnDestroy() {

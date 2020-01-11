@@ -18,6 +18,13 @@ export class UserService {
 
   }
 
+
+addUsers(user:User):Observable<User>{
+  return this.http.post<User>( `${environment.backUrl}?controller=user&action=addUser` , user);
+
+}
+
+
 }
 
 

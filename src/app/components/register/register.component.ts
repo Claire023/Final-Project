@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, AuthReponseData } from 'src/app/auth.service';
-import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { FormBuilder, FormControl, EmailValidator, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -12,86 +12,118 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   
+  email : FormControl;
+  password : FormControl;
+
+  registerForm:FormGroup;
   
-  isLoginMode = true;
-  isLoading = false;
-  error :string = null;
 
+  
+  constructor( private userService : UserService, private router:Router, private fb:FormBuilder) { 
+  
+    this.email = this.fb.control("", [
 
-  // registerUserData = {}
-
-  constructor( private auth :AuthService, private router:Router) { 
-
+      Validators.required,
+      Validators.email
+    ]);
+    
+    this.password = this.fb.control("", [
+    
+      Validators.required,
+      Validators.minLength(6)
+    ]);
+    
+    
+    
+    this.registerForm = fb.group({
+      email:this.email,
+      password:this.password
+    
+    });
   }
 
   ngOnInit() {
     
-
   }
-
- onSwitchMode() {
-   this.isLoginMode = !this.isLoginMode;
- }
-
-
-
-  onSubmit(form:NgForm) {
-    if(!form.valid) {
-      return;
-    }
-console.log('test');
   
-  const email = form.value.email;
-  const password = form.value.password;
-  const passwordConfirm = form.value.passwordConfirm;
 
-  let authObs: Observable<AuthReponseData>;
+ onSubmit() {
+   //je vérifie si mon form est valide
+   if(this.registerForm.valid){
+     //j'instancie un user 
+     let user : User = new User();
+//je récupère les valeurs du user
+     user.email = this.email.value;
+     user.password = this.password.value;
+     this.userService.addUsers(user).subscribe(
+       //en cas de succés je redirige vers le login
+      (data)=> console.log(data),
+      // this.router.navigate(['/login']),
+      error=> console.log(error)    
+    );
 
-
-  this.isLoading = true;
-
-  if(this.isLoginMode) {
-     authObs = this.auth.login(email,password);
-  } else {
-    
-    authObs = this.auth.signup(email, password);
-
-//pour éviter de se répéter
-    authObs.subscribe(
-  resData => {
-    console.log(resData);
-    this.isLoading = false;
-    // Affiche l'onglet commander quand inscrit/loguedin
-    this.router.navigate(['/order']);
-
-  },
-
-
-  errorMessage => {
-    console.log(errorMessage);
-   this.error = errorMessage;
-   //Logique dans AuthService
-    
-    this.isLoading = false;
+   }
   }
-);
+
+ 
+
+//  onSwitchMode() {
+//    this.isLoginMode = !this.isLoginMode;
+//  }
 
 
-      form.reset();
 
-  }
+  // onSubmit(form:NgForm) {
+  //   if(!form.valid) {
+  //     return;
+  //   }
+// console.log('test');
+  
+//   const email = form.value.email;
+//   const password = form.value.password;
+//   const passwordConfirm = form.value.passwordConfirm;
+
+//   let authObs: Observable<AuthReponseData>;
+
+
+//   this.isLoading = true;
+
+//   if(this.isLoginMode) {
+//      authObs = this.auth.login(email,password);
+//   } else {
+    
+//     authObs = this.auth.signup(email, password);
+
+// //pour éviter de se répéter
+//     authObs.subscribe(
+//   resData => {
+//     console.log(resData);
+//     this.isLoading = false;
+//     // Affiche l'onglet commander quand inscrit/loguedin
+//     this.router.navigate(['/order']);
+
+//   },
+
+
+//   errorMessage => {
+//     console.log(errorMessage);
+//    this.error = errorMessage;
+//    //Logique dans AuthService
+    
+//     this.isLoading = false;
+//   }
+// );
+
+
+//       form.reset();
+
+//   }
 
 }
 
 
-  // registerUser() {
-  //   console.log(this.registerUserData);
-  //   this.http.post('https://final-project-1bbca.firebaseio.com/posts.json' , this.registerUserData)
-  //   .subscribe(responseData => {
-  //     console.log(responseData)
-  //   });
-  // }
 
 
 
-}
+
+
