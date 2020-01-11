@@ -24,6 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { TestComponent } from './components/test/test.component';
 import { Test2Component } from './components/test2/test2.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 
@@ -34,6 +35,7 @@ const ROUTES: Route[] = [
   {path:'book', component:BookComponent},
   {path:'service', component:ServiceComponent},
   {path:'franchise', component:FranchiseComponent},
+  {path:'menu', component:MenuComponent},
   {path:'user', component:UserComponent},
   {path:'section', component:SectionComponent},
   {path:'login', component:   LoginComponent},
@@ -61,7 +63,8 @@ const ROUTES: Route[] = [
     RegisterComponent,
     TestComponent,
     Test2Component,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    MenuComponent
   
 
   ],

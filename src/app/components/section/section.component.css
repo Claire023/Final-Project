@@ -57,7 +57,7 @@ fa-icon {
 
 
 #history {
- padding-top:250px;
+ padding-top:60px;
 }
 
 
@@ -88,10 +88,10 @@ fa-icon {
 
 
 #salse {
-
-    /* background: url("/assets/images/salse.jpeg");
-    background-size:cover;
-    */
+/* 
+    background: url("/assets/images/salse.jpeg");
+    background-size:cover; */
+   
     background-color:rgba(236, 212, 195, 0.5);
 
 } 
@@ -101,6 +101,7 @@ fa-icon {
     /* background:url("https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1460&q=80")no-repeat center;
     background-size :cover;
     opacity:0.5; */
+    
     background-color:rgba(236, 212, 195, 0.5);
 
 }
@@ -154,4 +155,16 @@ button {
    width:50%;
 }
 
+#exemple1 {
+    background-image: url("src/assets/images/Dashboard2.jpg");
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    height:500px;
 
+}
+
+#exemple2 {
+    background-color: rgba(253, 253, 253, 0.9);
+  
+}

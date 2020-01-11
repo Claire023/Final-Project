@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth.service';
-import { HttpClient } from '@angular/common/http';
+import { AuthService, AuthReponseData } from 'src/app/auth.service';
 import { NgForm } from '@angular/forms';
-
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
 
   // registerUserData = {}
 
-  constructor( private auth :AuthService, private http : HttpClient) { 
+  constructor( private auth :AuthService, private router:Router) { 
 
   }
 
@@ -33,42 +33,55 @@ export class RegisterComponent implements OnInit {
    this.isLoginMode = !this.isLoginMode;
  }
 
+
+
   onSubmit(form:NgForm) {
     if(!form.valid) {
       return;
     }
-  const pseudo = form.value.pseudo;
+console.log('test');
+  
   const email = form.value.email;
   const password = form.value.password;
   const passwordConfirm = form.value.passwordConfirm;
 
+  let authObs: Observable<AuthReponseData>;
+
+
   this.isLoading = true;
 
   if(this.isLoginMode) {
-    //…
+     authObs = this.auth.login(email,password);
   } else {
     
-      this.auth.signup(email, password).subscribe(
-         resData => {
-        console.log(resData);
-        this.isLoading = false;
+    authObs = this.auth.signup(email, password);
+
+//pour éviter de se répéter
+    authObs.subscribe(
+  resData => {
+    console.log(resData);
+    this.isLoading = false;
+    // Affiche l'onglet commander quand inscrit/loguedin
+    this.router.navigate(['/order']);
+
+  },
+
+
+  errorMessage => {
+    console.log(errorMessage);
+   this.error = errorMessage;
+   //Logique dans AuthService
     
-      },
-    
-      errorMessage => {
-        console.log(errorMessage);
-       this.error = errorMessage;
-       //Logique dans AuthService
-        
-        this.isLoading = false;
-      }
-      );
+    this.isLoading = false;
+  }
+);
+
+
       form.reset();
 
   }
 
 }
-
 
 
   // registerUser() {
@@ -79,8 +92,6 @@ export class RegisterComponent implements OnInit {
   //   });
   // }
 
-
-  
 
 
 }
