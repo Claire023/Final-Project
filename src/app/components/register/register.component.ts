@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   
   email : FormControl;
   password : FormControl;
-
   registerForm:FormGroup;
   
 
@@ -70,7 +69,6 @@ export class RegisterComponent implements OnInit {
 //  onSwitchMode() {
 //    this.isLoginMode = !this.isLoginMode;
 //  }
-
 
 
   // onSubmit(form:NgForm) {

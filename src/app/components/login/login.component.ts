@@ -1,20 +1,39 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 
 @Component({templateUrl: 'login.component.html'})
 export class LoginComponent implements OnInit {
+
+    email : FormControl;
+    password : FormControl;
+    loginForm:FormGroup;
   
 
+    constructor(private authService : AuthService, private router:Router, private fb:FormBuilder) {
+        
 
-    constructor(
-        
-    ) {
-        
+        this.email = this.fb.control("", [
+            Validators.required,
+            Validators.email
+          ]);
+          
+          this.password = this.fb.control("", [
+            Validators.required
+          ]);
+          
+          
+          this.loginForm = fb.group({
+            email:this.email,
+            password:this.password
+          
+          });
+
+
         }
     
 
@@ -22,6 +41,10 @@ export class LoginComponent implements OnInit {
      
     }
 
-  
+    onSubmit() {
+        if(this.loginForm.valid) {
+            this.authService.login(this.email.value, this.password.value);
+        }
+    }
     
 }

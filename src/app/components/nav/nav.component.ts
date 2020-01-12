@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faSearchLocation } from '@fortawesome/free-solid-svg-icons';
@@ -13,9 +13,9 @@ import { Subscription } from 'rxjs';
 export class NavComponent implements OnInit {
 
   isAuthenticated = false;
-  private userSub : Subscription;
+  
 
-  constructor( private auth : AuthService) {
+  constructor( private authService : AuthService) {
    
   }
 
@@ -25,6 +25,8 @@ export class NavComponent implements OnInit {
   faUser = faUser;
   faCoffee = faCoffee;
 
+  
+ 
 
   ngOnInit() {
     // this.userSub = this.auth.user.subscribe(user => {
@@ -33,15 +35,19 @@ export class NavComponent implements OnInit {
     // });
   }
 
-  // onLogout() {
-  //   this.auth.logout();
-  // }
 
+  displayDeconnexion() {
+    this.authService.isLoggedIn();
 
-  ngOnDestroy() {
-    this.userSub.unsubscribe();
   }
 
+  onLogout() {
+    this.authService.logout();
+
+  }
+
+
+ 
 }
 
 

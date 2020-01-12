@@ -6,19 +6,21 @@
         <!-- form card login -->
         <div class="card rounded-0">
           <div class="card-header">
-            <h3 class="mb-0">Register</h3>
+            <h3 class="mb-0">Connectez-vous</h3>
           </div>
           <div class="card-body">
-            <form class="form">
+           
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div class="form-group">
-                <label for="">Email</label>
-                <input [(ngModel)]="registerUserData.email" type="text"  name="email" class="form-control rounded-0" required>
+                <label for="email">Email</label>
+                <input  type="text" name="email" class="form-control rounded-0" formControlName="email">
               </div>
+
               <div class="form-group">
-                <label>Password</label>
-                <input [(ngModel)]="registerUserData.password" type="password"  name="password" class="form-control rounded-0"  required>
+                <label>Mot de Passe</label>
+                <input type="password"  name="password" class="form-control rounded-0" formControlName="password">
               </div>
-              <button  (click)="registerUser()" type="button" class="btn btn-primary float-right">Register</button>
+              <button  type="submit" class="btn btn-danger float-right" [disabled]="loginForm.invalid">Connexion</button>
             </form>
           </div>
           <!--/card-block-->
@@ -28,3 +30,7 @@
       </div>
     </div>
   </div>
+
+
+
+  
