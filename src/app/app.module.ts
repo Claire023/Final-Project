@@ -4,6 +4,13 @@ import { RouterModule, Route } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material';
+import { MatFormFieldModule } from '@angular/material';
+
+import { MatSelectModule}from '@angular/material';
+import { MatOptionModule}from '@angular/material';
 
 
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -25,6 +32,7 @@ import { TestComponent } from './components/test/test.component';
 import { Test2Component } from './components/test2/test2.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -41,6 +49,7 @@ const ROUTES: Route[] = [
   {path:'login', component:   LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'test', component: TestComponent},
+  {path:'test2', component: Test2Component},
   {path:'**', component:PagenotfoundComponent},
   
 ];
@@ -72,9 +81,20 @@ const ROUTES: Route[] = [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSliderModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatFormFieldModule ,
+    MatSelectModule,
+    MatOptionModule,
+
+
     FontAwesomeModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)],
+    RouterModule.forRoot(ROUTES),
+    BrowserAnimationsModule, 
+    
+  ],
 
     providers: [
     

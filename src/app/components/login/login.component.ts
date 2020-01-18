@@ -46,5 +46,5 @@ export class LoginComponent implements OnInit {
             this.authService.login(this.email.value, this.password.value);
         }
     }
-    
+  
 }

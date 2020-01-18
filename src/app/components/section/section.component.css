@@ -10,6 +10,31 @@ a {
 }
 
 
+h1 {
+
+    font-family: 'Dancing Script', cursive;
+    font-size:5em;
+    color:rgb(170, 63, 63);   
+}
+
+
+h2 {
+   
+font-family: 'Amatic SC', cursive;
+color:rgb(170, 63, 63);
+}
+
+.fa-instagram {
+    font-size:60px; 
+    padding:10px;
+}
+
+.fa-facebook-square {
+font-size:60px;
+padding:10px;
+}
+
+
 .test2 {
     position:relative; 
     height:400px; 
@@ -58,7 +83,7 @@ fa-icon {
 
 #history {
  padding-top:60px;
-}
+} 
 
 
 
@@ -117,7 +142,6 @@ fa-icon {
 
 input {
     margin :10px;
-    /* width:50%; */
     border : 2px solid rgb(170, 63, 63);
 }
 
@@ -160,22 +184,31 @@ button {
     background-size: cover;
     background-position-x: center;
     background-position-y: center;
-    height:500px;
+    /* height:500px; */
 
 }
 
 #exemple2 {
     background-color: rgba(253, 253, 253, 0.9);
-  
+ 
 }
 
 
 .schedule {
-    text-align:center;
+    
     border-top: 1px solid rgb(170, 63, 63);
     border-bottom: 1px solid rgb(170, 63, 63);
     margin-left:70px;
     margin-right:70px;
     
     
+}
+
+
+.find {
+    
+    border-bottom: 1px solid rgb(170, 63, 63);
+    margin-left:70px;
+    margin-right:70px;
+        
 }
