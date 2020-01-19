@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faPepperHot} from '@fortawesome/free-solid-svg-icons';
 import { faImage, faFileSignature, faUtensils } from '@fortawesome/free-solid-svg-icons';
-
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { ContactService } from 'src/app/services/contact.service';
 
 
 @Component({
@@ -16,19 +17,57 @@ export class SectionComponent implements OnInit {
   faImage = faImage;
   faFileSignature = faFileSignature;
 
-  
 
-  
-  constructor(
-    
-  ) {
-   
+  email : FormControl;
+  nom: FormControl;
+  sujet: FormControl;
+  message: FormControl;
+  contactForm:FormGroup;
+
+
+  constructor(private contactService : ContactService, private fb:FormBuilder) {
+
+    this.email = this.fb.control("", [
+      Validators.required,
+      Validators.email
+    ]);
+
+    this.nom= this.fb.control("", [
+      Validators.required,
+    ]);
+
+    this.sujet = this.fb.control("", [
+      Validators.required,
+    ]);
+
+    this.message = this.fb.control("", [
+      Validators.required,
+    ]);
+
+
+    this.contactForm = fb.group({
+      email:this.email,
+      nom:this.nom,
+      sujet:this.sujet,
+      message:this.message,    
+    });
+
   }
 
- 
+  
   ngOnInit() {
     
   }
 
 
+  onSubmit() {
+    if(this.contactForm.valid) {
+      console.log('clicked');
+        this.contactService.sendContact(this.email.value, this.nom.value,this.sujet.value, this.message.value)
+        .subscribe(
+          (data)=> console.log(data),
+          error=> console.log(error) 
+        );
+    }
+  }
 }

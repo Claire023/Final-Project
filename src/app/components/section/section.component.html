@@ -87,25 +87,26 @@
             <p>ou avec le formulaire suivant : </p>
 
 
-
- <div class="container m-5" id="contact">
+           
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="container m-5" id="contact">
      <div class="row">
         <div class="col-12 col-md-6" class="contact">
-            <input class="form-control" type="email"  placeholder="e-mail"> 
-            <input class="form-control" type="text" placeholder="nom">
-            <input class="form-control" type="text" placeholder="sujet">
+            <input class="form-control" type="email"  placeholder="e-mail" formControlName="email"> 
+            <input class="form-control" type="text" placeholder="nom" formControlName="nom">
+            <input class="form-control" type="text" placeholder="sujet" formControlName="sujet">
         </div> 
 
-    
         <div class="col-12 col-md-6">
-                <textarea name="" id="" cols="50" rows="6" placeholder="votre message"></textarea>
+                <textarea name="" id="" cols="50" rows="6" placeholder="votre message" formControlName="message"></textarea>
                 <div>
-                    <button type="submit" class="btn ">ENVOYER</button>
+                    <button type="submit" class="btn">ENVOYER</button>
+                    <p>Votre message a bien été envoyé</p>
                 </div>
             </div>
         </div>
     </div>
-    
+</form>
 
 
 
