@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import  *  as moment from "moment";
-
-import {  User} from 'src/app/models/user';
 import { Router} from '@angular/router';
 import { environment } from 'src/environments/environment';
 
@@ -36,11 +34,10 @@ export class AuthService {
 private setSession(authResult) {
 
 
-const expiresAt = moment().add(authResult.expiresIn,'second');
-
-console.log(authResult);
+const expiresAt = moment().add(authResult.exp,'second');
   localStorage.setItem('idToken' , authResult.jwt);
   localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+  window.location.reload();
 
 }
 
@@ -48,6 +45,7 @@ console.log(authResult);
 public logout() {
   localStorage.removeItem("id_token");
   localStorage.removeItem("expires_at");
+  window.location.reload();
 }
 
 

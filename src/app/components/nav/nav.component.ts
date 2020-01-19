@@ -36,6 +36,17 @@ export class NavComponent implements OnInit {
   }
 
 
+
+
+
+  
+
+    //je vérifie si user est connecté
+  isAuth() {
+  return this.authService.isLoggedIn();
+}
+  
+
   displayDeconnexion() {
     this.authService.isLoggedIn();
 

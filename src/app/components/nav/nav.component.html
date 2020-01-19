@@ -20,7 +20,7 @@
                                                             <a routerLink="/order" routerLinkActive="active" href="nav-link">Commander</a>
                                                       </li>
                                                       
-                                                      <li class="nav-item">
+                                                      <li class="nav-item"  *ngIf="isAuth()">
                                                             <a routerLink="/book" routerLinkActive="active" href="nav-link">Réserver</a>
                                                       </li>
                                                       

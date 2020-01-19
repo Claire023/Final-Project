@@ -86,60 +86,6 @@ fa-icon {
 } 
 
 
-
- #drinks {
-    /* background-image: url("/assets/images/drinks.jpeg");
-    background-size: cover; */
-    background-color:rgba(236, 212, 195, 0.5);
-
-}
- 
-
-#starter {
-    /* background: url("/assets/images/starter.jpeg");
-    background-size:cover; */
-    background-color:rgba(236, 212, 195, 0.5);
-
-} 
-
-
-
-#plate {
-    /* background: url("/assets/images/main.jpg");
-    background-size:cover; */
-     background-color:rgba(236, 212, 195, 0.5);
-    
-}
-
-
-#salse {
-/* 
-    background: url("/assets/images/salse.jpeg");
-    background-size:cover; */
-   
-    background-color:rgba(236, 212, 195, 0.5);
-
-} 
-
-
- #dessert {
-    /* background:url("https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1460&q=80")no-repeat center;
-    background-size :cover;
-    opacity:0.5; */
-    
-    background-color:rgba(236, 212, 195, 0.5);
-
-}
-
-
-#coffee {
-    /* background:url("https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")no-repeat center;
-    background-size :cover;
-    opacity:0.5; */
-    background-color:rgba(236, 212, 195, 0.5);
-} 
-
-
 input {
     margin :10px;
     border : 2px solid rgb(170, 63, 63);

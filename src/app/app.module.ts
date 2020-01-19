@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material';
@@ -33,6 +33,10 @@ import { Test2Component } from './components/test2/test2.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from './services/authGuard.service';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptorService } from './services/authInterceptor.service';
+
 
 
 
@@ -40,7 +44,9 @@ const ROUTES: Route[] = [
 
   {path:'', component: SectionComponent},
   {path:'order', component: OrderComponent},
-  {path:'book', component:BookComponent},
+  {path:'book',
+  canActivate: [AuthGuard],
+   component:BookComponent},
   {path:'service', component:ServiceComponent},
   {path:'franchise', component:FranchiseComponent},
   {path:'menu', component:MenuComponent},
@@ -87,8 +93,6 @@ const ROUTES: Route[] = [
     MatFormFieldModule ,
     MatSelectModule,
     MatOptionModule,
-
-
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
@@ -97,9 +101,12 @@ const ROUTES: Route[] = [
   ],
 
     providers: [
+      AuthGuard,
+      AuthService,
+      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}
     
     ],
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent]
   
    
 })

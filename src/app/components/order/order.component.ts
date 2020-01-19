@@ -11,7 +11,7 @@ import {FormControl} from '@angular/forms';
 
 export class OrderComponent implements OnInit {
 
-  starers = new FormControl();
+  starters = new FormControl();
   starterList: string[] = ['Extra cheese 2,50 €', 'Mushroom 3 €', 'Onion 4 €'];
 
   main = new FormControl();

@@ -56,15 +56,18 @@ export class RegisterComponent implements OnInit {
      user.password = this.password.value;
      this.userService.addUsers(user).subscribe(
        //en cas de succés je redirige vers le login
-      (data)=> console.log(data),
-      // this.router.navigate(['/login']),
-      error=> console.log(error)    
+      (data)=> {
+        console.log(data);
+        this.router.navigate(['/login']);
+      },
+      error=> {
+        return console.log(error);
+      }    
     );
 
    }
   }
 
- 
 
 //  onSwitchMode() {
 //    this.isLoginMode = !this.isLoginMode;

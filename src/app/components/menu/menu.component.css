@@ -1,15 +1,24 @@
+h4 {
+
+    text-align:center;
+    font-family: 'Amatic SC', cursive;
+    color:rgb(170, 63, 63);
+    font-weight: bold;
+    font-size: 50px;
+    padding:20px;
+}
 
 
 
 
 
 
-
-
-
-
-
-
+.fa-glass-cheers, .fa-utensils, .fa-coffee {
+    padding:40px;
+}
+ 
+ 
+ 
  #drinks {
     /* background-image: url("/assets/images/drinks.jpeg");
     background-size: cover; */
