@@ -14,11 +14,9 @@ export class NavComponent implements OnInit {
 
   isAuthenticated = false;
   
-
   constructor( private authService : AuthService) {
    
   }
-
 
 //Logos from nav
   faSearchLocation = faSearchLocation;
@@ -26,20 +24,10 @@ export class NavComponent implements OnInit {
   faCoffee = faCoffee;
 
   
- 
-
   ngOnInit() {
-    // this.userSub = this.auth.user.subscribe(user => {
-    //   this.isAuthenticated = !!user;
-
-    // });
+    
   }
 
-
-
-
-
-  
 
     //je vérifie si user est connecté
   isAuth() {
@@ -47,18 +35,11 @@ export class NavComponent implements OnInit {
 }
   
 
-  displayDeconnexion() {
-    this.authService.isLoggedIn();
-
-  }
-
   onLogout() {
     this.authService.logout();
 
   }
 
-
- 
 }
 
 

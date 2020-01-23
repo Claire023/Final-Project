@@ -33,13 +33,20 @@ export class LoginComponent implements OnInit {
           
           });
 
-
         }
-    
+        
+        
+        ngOnInit() {
+          
+        }
+        
+        get mail(){
+          return this.loginForm.get('email');
+        }
 
-    ngOnInit() {
-     
-    }
+        get pass(){
+          return this.loginForm.get('password');
+        }
 
     onSubmit() {
         if(this.loginForm.valid) {

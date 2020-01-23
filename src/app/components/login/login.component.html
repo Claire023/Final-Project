@@ -12,15 +12,28 @@
            
             <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input  type="text" name="email" class="form-control rounded-0" formControlName="email">
+                <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="mail.errors.required">
+                    *email requis
+                  </div>
+                </div>
               </div>
 
               <div class="form-group">
-                <label>Mot de Passe</label>
+                <label>Mot de Passe*</label>
                 <input type="password"  name="password" class="form-control rounded-0" formControlName="password">
+                <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+                class="alert alert-danger">
+                <div *ngIf="pass.errors.required">
+                  *mot de passe requis
+                </div>
+              </div>
               </div>
               <button  type="submit" class="btn btn-danger float-right" [disabled]="loginForm.invalid">Connexion</button>
+
             </form>
           </div>
           <!--/card-block-->

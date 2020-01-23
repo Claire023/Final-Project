@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, EmailValidator, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { isEqual } from 'src/app/models/isEqual';
+
 
 
 @Component({
@@ -11,19 +13,24 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  
+
+
   email : FormControl;
   password : FormControl;
+  passwordConfirm: FormControl;
   registerForm:FormGroup;
+
+  isLoading = false;
   
 
-  
-  constructor( private userService : UserService, private router:Router, private fb:FormBuilder) { 
-  
+  constructor(private userService : UserService, private router:Router, private fb:FormBuilder) { 
+
+
     this.email = this.fb.control("", [
-
+  
       Validators.required,
-      Validators.email
+      Validators.email,
+      
     ]);
     
     this.password = this.fb.control("", [
@@ -31,24 +38,50 @@ export class RegisterComponent implements OnInit {
       Validators.required,
       Validators.minLength(6)
     ]);
-    
+
+    this.passwordConfirm = this.fb.control("", [
+      Validators.required,
+    ]);
     
     
     this.registerForm = fb.group({
       email:this.email,
-      password:this.password
+      password:this.password,
+      passwordConfirm:this.passwordConfirm
     
+    }, 
+    {
+      //validateur confirmation mot de passe
+      validator:isEqual('password', 'passwordConfirm'),
     });
+
+
   }
 
-  ngOnInit() {
-    
-  }
+
+ngOnInit() {
   
+  
+}
+
+//getters pour afficher les messages d'erreur
+get mail(){
+  return this.registerForm.get('email');
+}
+
+get pass(){
+  return this.registerForm.get('password');
+}
+
+get passC(){
+  return this.registerForm.get('password');
+}
+
 
  onSubmit() {
    //je vérifie si mon form est valide
    if(this.registerForm.valid){
+   
      //j'instancie un user 
      let user : User = new User();
 //je récupère les valeurs du user
@@ -58,6 +91,7 @@ export class RegisterComponent implements OnInit {
        //en cas de succés je redirige vers le login
       (data)=> {
         console.log(data);
+        this.isLoading = true;
         this.router.navigate(['/login']);
       },
       error=> {
