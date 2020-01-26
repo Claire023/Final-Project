@@ -33,6 +33,10 @@ export class NavComponent implements OnInit {
   isAuth() {
   return this.authService.isLoggedIn();
 }
+
+isAdmin() {
+  return this.authService.isAdmin();
+}
   
 
   onLogout() {

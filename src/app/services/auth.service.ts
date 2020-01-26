@@ -5,7 +5,6 @@ import { Router} from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +33,8 @@ private setSession(authResult) {
 const expiresAt = moment().add(authResult.exp,'second');
   localStorage.setItem('idToken' , authResult.jwt);
   localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
-  // window.location.reload();
+  localStorage.setItem("isAdmin", authResult.isAdmin);
+  
 
 }
 
@@ -42,15 +42,24 @@ const expiresAt = moment().add(authResult.exp,'second');
 public logout() {
   localStorage.removeItem("id_token");
   localStorage.removeItem("expires_at");
+  localStorage.removeItem("isAdmin");
   localStorage.clear();
   window.location.reload();
 }
-
 
 public isLoggedIn() {
   return moment().isBefore(this.getExpiration());
 }
 
+//je check si mon admin se connecte
+public isAdmin(): boolean {
+ let result: boolean = false;
+   if(this.isLoggedIn()){
+     //je récupere la valeur de isAdmin dans le localStorage car 1 est l'admin
+    result = localStorage.getItem("isAdmin") === "true";
+   }
+   return result;
+}
 
 isLoggedOut() {
   return !this.isLoggedIn();
@@ -62,6 +71,4 @@ getExpiration() {
   return moment(expiresAt);
 }
 
-
-  
 }

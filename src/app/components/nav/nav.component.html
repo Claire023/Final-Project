@@ -9,13 +9,24 @@
             <div  class="collapse navbar-collapse" id="navbarSupportedContent" >
                                           
                   <ul class="navbar-nav ml-auto">
+
+
+                        <div class="dropdown"  *ngIf="isAuth() && isAdmin()">
+                              <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+                                 Admin
+                             </button>                            
+                           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                                 <button class="dropdown-item" type="button" routerLink="/test2" routerLinkActive="active" href="nav-link">Messages Reçus</button>
+                                 <button class="dropdown-item" type="button" routerLink="/test" routerLinkActive="active" href="nav-link">Liste des clients</button>
+                                 <button class="dropdown-item" type="button" routerLink="/test-menu" routerLinkActive="active" href="nav-link">Modification menu</button>
+                           </div>
+                      </div>
+
+
                                                 
                    <li class="nav-item">
                         <a routerLink="/menu" routerLinkActive="active" href="nav-link">Menu</a>
                   </li>
-                  <li class="nav-item">
-                        <a routerLink="/order" routerLinkActive="active" href="nav-link">Commander</a>
-                   </li>
                                                       
                    <li class="nav-item"  *ngIf="isAuth()">
                          <a routerLink="/book" routerLinkActive="active" href="nav-link">Réserver</a>

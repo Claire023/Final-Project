@@ -8,10 +8,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
-
 import { MatSelectModule}from '@angular/material';
 import { MatOptionModule}from '@angular/material';
-
 
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
@@ -22,7 +20,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ServiceComponent } from './components/service/service.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-import { OrderComponent } from './components/order/order.component';
 import { BookComponent } from './components/book/book.component';
 import { FranchiseComponent } from './components/franchise/franchise.component';
 import { UserComponent } from './components/user/user.component';
@@ -36,14 +33,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './services/authGuard.service';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptorService } from './services/authInterceptor.service';
-
-
+import { AdminGuardService } from './services/admin-guard.service';
+import { TestMenuComponent } from './components/test-menu/test-menu.component';
 
 
 const ROUTES: Route[] = [
 
   {path:'', component: SectionComponent},
-  {path:'order', component: OrderComponent},
   {path:'book',
   canActivate: [AuthGuard],
    component:BookComponent},
@@ -54,8 +50,15 @@ const ROUTES: Route[] = [
   {path:'section', component:SectionComponent},
   {path:'login', component:   LoginComponent},
   {path:'register', component: RegisterComponent},
-  {path:'test', component: TestComponent},
-  {path:'test2', component: Test2Component},
+  {path:'test', 
+  canActivate: [AdminGuardService],
+  component: TestComponent},
+  {path:'test2', 
+  canActivate: [AdminGuardService], 
+  component: Test2Component},
+  {path:'test-menu', 
+  canActivate: [AdminGuardService],
+  component:TestMenuComponent},
   {path:'**', component:PagenotfoundComponent},
   
 ];
@@ -67,7 +70,6 @@ const ROUTES: Route[] = [
     SectionComponent,
     FooterComponent,
     NavComponent,
-    OrderComponent, 
     BookComponent,
     FranchiseComponent,
     UserComponent,
@@ -79,9 +81,9 @@ const ROUTES: Route[] = [
     TestComponent,
     Test2Component,
     LoadingSpinnerComponent,
-    MenuComponent
+    MenuComponent,
+    TestMenuComponent
   
-
   ],
   imports: [
     BrowserModule,
@@ -111,6 +113,5 @@ const ROUTES: Route[] = [
    
 })
 export class AppModule {
-
   
  }

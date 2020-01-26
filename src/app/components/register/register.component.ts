@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
-import { isEqual } from 'src/app/models/isEqual';
+
+
+export const checkConfirmPassword: ValidatorFn = (control: FormGroup) : ValidationErrors  | null => {
+
+  return control.get('password').value !== control.get('passwordConfirm').value ? { 'differentPassword' : true } : null;
+}
 
 
 
@@ -39,9 +44,7 @@ export class RegisterComponent implements OnInit {
       Validators.minLength(6)
     ]);
 
-    this.passwordConfirm = this.fb.control("", [
-      Validators.required,
-    ]);
+    this.passwordConfirm = this.fb.control("", []);
     
     
     this.registerForm = fb.group({
@@ -52,7 +55,7 @@ export class RegisterComponent implements OnInit {
     }, 
     {
       //validateur confirmation mot de passe
-      validator:isEqual('password', 'passwordConfirm'),
+      validator: checkConfirmPassword,
     });
 
 
@@ -79,6 +82,7 @@ get passC(){
 
 
  onSubmit() {
+  console.log(this.registerForm);
    //je vérifie si mon form est valide
    if(this.registerForm.valid){
    
