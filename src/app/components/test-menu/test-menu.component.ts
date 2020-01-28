@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {  MenuService } from 'src/app/services/menu.service';
 import { Product } from 'src/app/models/product';
+import { ProductCategory } from 'src/app/models/productCategory';
+
+import { faPepperHot} from '@fortawesome/free-solid-svg-icons';
+import { faImage, faFileSignature, faUtensils } from '@fortawesome/free-solid-svg-icons';
+
 
 
 @Component({
@@ -10,13 +15,28 @@ import { Product } from 'src/app/models/product';
 })
 export class TestMenuComponent implements OnInit {
 
+  faPepperHot = faPepperHot;
+  faUtensils = faUtensils;
+  faImage = faImage;
+  faFileSignature = faFileSignature;
+
+
   products: Product[] = [];
+  productCategory: ProductCategory[] = [];
+  drinkSubCategory: Product[] = [];
+  starterSubCategory: Product[] = [];
+  mainSubCategory:Product[] = [];
+  
   // formattedProduct: Array<Product[]>;
 
   constructor(private menuService:MenuService) { }
 
   ngOnInit() {
     this.getProductList();
+    this.getProductCategoryList();
+    this.getDrinkSubCategoryList();
+    this.getStarterSubCategoryList();
+    this.getMainSubCategoryList();
   }
 
 
@@ -25,13 +45,59 @@ export class TestMenuComponent implements OnInit {
 this.menuService.getProducts().subscribe(
   (products: Product[]) => { 
     this.products = products
-    console.log(products)
     // this.getFormattedProductList()
-
     }
   )
 }
 
+
+getProductCategoryList() {
+  //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour savoir quand ton traitement arrives
+  this.menuService.getProductCategory().subscribe(
+    (productCategory: ProductCategory[]) => { 
+      this.productCategory = productCategory
+      }
+    )
+  }
+
+  getDrinkSubCategoryList() {
+    //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour savoir quand ton traitement arrives
+    this.menuService.getDrinkSubCategory().subscribe(
+      (drinkSubCategory: Product[]) => { 
+        this.drinkSubCategory = drinkSubCategory
+        }
+      )
+    }
+
+    getStarterSubCategoryList() {
+      //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour savoir quand ton traitement arrives
+      this.menuService.getStarterSubCategory().subscribe(
+        (starterSubCategory: Product[]) => { 
+          this.starterSubCategory = starterSubCategory
+          console.log(starterSubCategory);
+          }
+        )
+      }
+
+      getMainSubCategoryList() {
+        //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour savoir quand ton traitement arrives
+        this.menuService.getMainSubCategory().subscribe(
+          (mainSubCategory: Product[]) => { 
+            this.mainSubCategory = mainSubCategory
+            console.log(mainSubCategory);
+            }
+          )
+        }
+  
+
+
+
+
+
+
+
+
+    
 // getFormattedProductList() {
   //je prends ma liste de produit non triés j'applique ensuite la methode reduce qui 
   //réordonne les produits par catégorie et sous categorie

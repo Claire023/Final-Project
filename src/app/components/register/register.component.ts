@@ -11,7 +11,6 @@ export const checkConfirmPassword: ValidatorFn = (control: FormGroup) : Validati
 }
 
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -57,7 +56,6 @@ export class RegisterComponent implements OnInit {
       //validateur confirmation mot de passe
       validator: checkConfirmPassword,
     });
-
 
   }
 

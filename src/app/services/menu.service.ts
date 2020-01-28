@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from '../models/product';
+import { ProductCategory } from '../models/productCategory';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,27 @@ export class MenuService {
   getProducts():Observable<Product[]>{
     return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getProductList`);
     }
+
+//je récupère mes catégories de produits
+    getProductCategory():Observable<ProductCategory[]>{
+      return this.http.get<ProductCategory[]>(`${environment.backUrl}?controller=product&action=getProductCategoryList`);
+      }
+
+
+      //Je récupère mes sous-catégories de boissons
+    getDrinkSubCategory():Observable<Product[]>{
+      return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getDrinkCategoryList`);
+      }
+
+ //Je récupère mes sous-catégories d'entrées
+    getStarterSubCategory():Observable<Product[]>{
+      return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getStarterCategoryList`);
+  }
+
+   //Je récupère mes sous-catégories de plats
+   getMainSubCategory():Observable<Product[]>{
+    return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getMainCategoryList`);
+}
+
 
 }
