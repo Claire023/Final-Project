@@ -106,21 +106,23 @@
             <p>ou avec le formulaire suivant : </p>
 
 
-           
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="container" id="contact">
      <div class="row">
         <div class="col-12 col-md-6" class="contact">
-            <input class="form-control" type="email"  placeholder="e-mail" formControlName="email"> 
+            <input class="form-control" type="email"  placeholder="e-mail*" formControlName="email"> 
             <input class="form-control" type="text" placeholder="nom" formControlName="nom">
             <input class="form-control" type="text" placeholder="sujet" formControlName="sujet">
         </div> 
 
         <div class="col-12 col-md-6">
-                <textarea name="" id="" cols="50" rows="6" placeholder="votre message" formControlName="message"></textarea>
+                <textarea name="" id="" cols="50" rows="6" placeholder="votre message" class="form-control" formControlName="message"></textarea>
                 <div>
-                    <button type="submit" class="btn">ENVOYER</button>
-                    <p>Votre message a bien été envoyé</p>
+                    <button (click)="displayMessage()" type="submit" class="btn btn-danger m-3">ENVOYER</button>
+                    <div *ngIf="displayConfirmedSend" class="alert alert-dismissible alert-danger">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+                        <strong>Votre message a bien été envoyé !</strong>
+                      </div>
                 </div>
             </div>
         </div>

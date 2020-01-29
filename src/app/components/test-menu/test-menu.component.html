@@ -1,44 +1,68 @@
 
-<h4 *ngFor="let productCategory of productCategory">
-  {{ productCategory.name }}
-  <ul [ngSwitch]="productCategory.name">
-    <h5 *ngFor="let drinkSubCategory of drinkSubCategory">
-      <li *ngSwitchCase="'NUESTRAS BEBIDAS - Nos Boissons'">
-        {{ drinkSubCategory.sub_category }}
-      </li>  
-     </h5>
+<div class="container" id="menu">
 
-     <h5 *ngFor="let starterSubCategory of starterSubCategory">
-      <li *ngSwitchCase="'NUESTRAS ENTRADAS - Nos Entrées'">
-        {{ starterSubCategory.sub_category }}
-      </li>  
-     </h5>
+     <h4 *ngFor="let productCategory of productCategory">
+                {{ productCategory.name }}
+          <ul [ngSwitch]="productCategory.name">
+            <h5 *ngFor="let drinkSubCategory of drinkSubCategory">
+              <li *ngSwitchCase="'NUESTRAS BEBIDAS - Nos Boissons'">
 
-     <h5 *ngFor="let mainSubCategory of mainSubCategory">
-      <li *ngSwitchCase="'NUESTROS PLATOS - Nos Plats'">
-        {{ mainSubCategory.sub_category }}
-      </li>  
-     </h5>
+                {{ drinkSubCategory.sub_category }}
+              </li>  
+            </h5>
+
+            <h5 *ngFor="let starterSubCategory of starterSubCategory">
+              <li *ngSwitchCase="'NUESTRAS ENTRADAS - Nos Entrées'">
+                {{ starterSubCategory.sub_category }} 
+                <h5 *ngFor="let starter of starter">
+                  <p>{{ starter.name }}  </p>  
+                  <p> {{ starter.description }} </p>  
+                </h5> 
+              </li>  
+
+
+            </h5>
+
+            <h5 *ngFor="let mainSubCategory of mainSubCategory">
+              <li *ngSwitchCase="'NUESTROS PLATOS - Nos Plats'">
+                {{ mainSubCategory.sub_category }}
+              </li>  
+            </h5>
+
+            <h5 *ngFor="let dessertSubCategory of dessertSubCategory">
+              <li *ngSwitchCase="'NUESTROS POSTRES - Nos Desserts'">
+                {{ dessertSubCategory.sub_category }}
+              </li>  
+            </h5>
+
+
+            <h5 *ngFor="let digSubCategory of digSubCategory">
+              <li *ngSwitchCase="'NUESTROS CAFFECITOS - Nos Cafés & Thés'">
+                {{ digSubCategory.sub_category }}
+              </li>  
+            </h5>
+
+          </ul>
+        
+    </h4>
+
+
+    <h5 *ngFor="let starter of starter">
+      <p>{{ starter.name }}  </p>  
+      <p> {{ starter.description }} </p>  
+    </h5>
 
 
 
-  </ul>
-</h4>
+
+
+  </div>    
       
       
-      
-      <!-- <li *ngSwitchCase="'NUESTROS PLATOS - Nos Plats'"> 
-        {{ starterSubCategory.sub_category }}
-      </li>
+      <!-- 
       <li *ngSwitchCase="'PA\'\REMOJAR - Nos Sauces'">
         {{ starterSubCategory.sub_category }}
-      </li>
-      <li *ngSwitchCase="'NUESTROS POSTRES - Nos Desserts'">
-        {{ starterSubCategory.sub_category }}
-      </li>
-      <li *ngSwitchCase="'NUESTROS CAFFECITOS - Nos Cafés & Thés'">
-        {{ starterSubCategory.sub_category }}
-      </li>  -->
+    -->
 
 
 

@@ -95,6 +95,7 @@ input::placeholder{
     color:  rgb(170, 63, 63);
     text-align:left;
     padding:5px;
+
 }
 
 
@@ -110,6 +111,12 @@ textarea::placeholder {
 
 }
 
+/* Change la couleur de l'encadré */
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: rgba(170, 63, 63, 0.8);
+    box-shadow: 0 1px 1px rgba(170, 63, 63, 0.075) inset, 0 0 8px rgba(170, 63, 63, 0.6);
+    outline: 0 none;
+}
 
 button {
     background : rgb(170, 63, 63);
@@ -119,6 +126,7 @@ button {
 .form-control {
    
    text-align:left;
+  
 }
 
 .contact {

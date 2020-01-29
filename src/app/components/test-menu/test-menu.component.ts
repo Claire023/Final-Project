@@ -20,12 +20,14 @@ export class TestMenuComponent implements OnInit {
   faImage = faImage;
   faFileSignature = faFileSignature;
 
-
   products: Product[] = [];
   productCategory: ProductCategory[] = [];
   drinkSubCategory: Product[] = [];
   starterSubCategory: Product[] = [];
   mainSubCategory:Product[] = [];
+  dessertSubCategory:Product[] = [];
+  digSubCategory:Product[] = [];
+  starter:Product[] = [];
   
   // formattedProduct: Array<Product[]>;
 
@@ -37,6 +39,10 @@ export class TestMenuComponent implements OnInit {
     this.getDrinkSubCategoryList();
     this.getStarterSubCategoryList();
     this.getMainSubCategoryList();
+    this.getDessertSubCategoryList();
+    this.getDigSubCategoryList();
+    this.getStarterList();
+
   }
 
 
@@ -74,7 +80,6 @@ getProductCategoryList() {
       this.menuService.getStarterSubCategory().subscribe(
         (starterSubCategory: Product[]) => { 
           this.starterSubCategory = starterSubCategory
-          console.log(starterSubCategory);
           }
         )
       }
@@ -84,14 +89,39 @@ getProductCategoryList() {
         this.menuService.getMainSubCategory().subscribe(
           (mainSubCategory: Product[]) => { 
             this.mainSubCategory = mainSubCategory
-            console.log(mainSubCategory);
             }
           )
         }
   
 
+      getDessertSubCategoryList() {
+        //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour savoir quand ton traitement arrives
+        this.menuService.getDessertSubCategory().subscribe(
+          (dessertSubCategory: Product[]) => { 
+            this.dessertSubCategory = dessertSubCategory
+            }
+          )
+        }
 
 
+        getDigSubCategoryList() {
+          //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour savoir quand ton traitement arrives
+          this.menuService.getDigSubCategory().subscribe(
+            (digSubCategory: Product[]) => { 
+              this.digSubCategory = digSubCategory
+              }
+            )
+          }
+  
+
+          getStarterList() {
+            //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour savoir quand ton traitement arrives
+            this.menuService.getStarter().subscribe(
+              (starter: Product[]) => { 
+                this.starter = starter
+                }
+              )
+            }
 
 
 

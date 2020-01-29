@@ -22,7 +22,6 @@ export class MenuService {
       return this.http.get<ProductCategory[]>(`${environment.backUrl}?controller=product&action=getProductCategoryList`);
       }
 
-
       //Je récupère mes sous-catégories de boissons
     getDrinkSubCategory():Observable<Product[]>{
       return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getDrinkCategoryList`);
@@ -37,6 +36,24 @@ export class MenuService {
    getMainSubCategory():Observable<Product[]>{
     return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getMainCategoryList`);
 }
+
+   //Je récupère mes sous-catégories de desserts
+   getDessertSubCategory():Observable<Product[]>{
+    return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getDessertCategoryList`);
+}
+
+
+ //Je récupère mes sous-catégories de digestifs
+ getDigSubCategory():Observable<Product[]>{
+  return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getDigCategoryList`);
+}
+
+
+ //Je récupère mes sous-catégories de digestifs
+ getStarter():Observable<Product[]>{
+  return this.http.get<Product[]>(`${environment.backUrl}?controller=product&action=getStarterList`);
+}
+
 
 
 }

@@ -24,6 +24,9 @@ export class SectionComponent implements OnInit {
   message: FormControl;
   contactForm:FormGroup;
 
+  //Montre le message lorsque contact appuie sur bouton envoyer
+  displayConfirmedSend = false;
+
 
   constructor(private contactService : ContactService, private fb:FormBuilder) {
 
@@ -68,6 +71,12 @@ export class SectionComponent implements OnInit {
           (data)=> console.log(data),
           error=> console.log(error) 
         );
-    }
-  }
+     }
+   }
+
+   displayMessage() {
+     this.displayConfirmedSend = true;
+   }
+
+
 }
