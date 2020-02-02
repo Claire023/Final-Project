@@ -10,6 +10,7 @@ import {MatRadioModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 import { MatSelectModule}from '@angular/material';
 import { MatOptionModule}from '@angular/material';
+import { MatIconModule}from '@angular/material/icon';
 
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
@@ -35,6 +36,7 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptorService } from './services/authInterceptor.service';
 import { AdminGuardService } from './services/admin-guard.service';
 import { TestMenuComponent } from './components/test-menu/test-menu.component';
+import { AdminProductComponent } from './components/admin-product/admin-product.component';
 
 
 const ROUTES: Route[] = [
@@ -82,7 +84,8 @@ const ROUTES: Route[] = [
     Test2Component,
     LoadingSpinnerComponent,
     MenuComponent,
-    TestMenuComponent
+    TestMenuComponent,
+    AdminProductComponent
   
   ],
   imports: [
@@ -95,6 +98,7 @@ const ROUTES: Route[] = [
     MatFormFieldModule ,
     MatSelectModule,
     MatOptionModule,
+    MatIconModule,
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),

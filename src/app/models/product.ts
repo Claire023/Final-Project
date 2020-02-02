@@ -1,10 +1,11 @@
 export class  Product {
- 
     ID : number;
     name : string;
     description : string;  
-    price : string;  
-    category : string; 
-    sub_category : string;   
+    id_cat : string;  
+    id_sub_cat : string; 
+    category_name : string; 
+    sub_category_name : number;  
 }
+
 
