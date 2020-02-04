@@ -4,14 +4,12 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AdminGuardService {
 
   constructor(private authService: AuthService, private router: Router) { }
-
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -22,7 +20,5 @@ export class AdminGuardService {
       alert("Cette page est réservé aux admin");
       this.router.navigate(['login']);
     }
-
   }
-
 }

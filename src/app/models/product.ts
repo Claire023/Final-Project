@@ -8,4 +8,3 @@ export class  Product {
     sub_category_name : number;  
 }
 
-

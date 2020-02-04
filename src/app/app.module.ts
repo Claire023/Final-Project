@@ -29,14 +29,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { TestComponent } from './components/test/test.component';
 import { Test2Component } from './components/test2/test2.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './services/authGuard.service';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptorService } from './services/authInterceptor.service';
 import { AdminGuardService } from './services/admin-guard.service';
-import { TestMenuComponent } from './components/test-menu/test-menu.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { AdminProductComponent } from './components/admin-product/admin-product.component';
+import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
 
 
 const ROUTES: Route[] = [
@@ -47,7 +47,6 @@ const ROUTES: Route[] = [
    component:BookComponent},
   {path:'service', component:ServiceComponent},
   {path:'franchise', component:FranchiseComponent},
-  {path:'menu', component:MenuComponent},
   {path:'user', component:UserComponent},
   {path:'section', component:SectionComponent},
   {path:'login', component:   LoginComponent},
@@ -58,11 +57,14 @@ const ROUTES: Route[] = [
   {path:'test2', 
   canActivate: [AdminGuardService], 
   component: Test2Component},
-  {path:'test-menu', 
+  {path:'menu', component:MenuComponent},
+  {path:'admin-menu',
   canActivate: [AdminGuardService],
-  component:TestMenuComponent},
+  component:AdminProductComponent},
+  {path:'edit-product',
+  canActivate: [AdminGuardService],
+  component:AdminEditProductComponent},
   {path:'**', component:PagenotfoundComponent},
-  
 ];
 
 @NgModule({
@@ -84,8 +86,8 @@ const ROUTES: Route[] = [
     Test2Component,
     LoadingSpinnerComponent,
     MenuComponent,
-    TestMenuComponent,
-    AdminProductComponent
+    AdminProductComponent,
+    AdminEditProductComponent
   
   ],
   imports: [

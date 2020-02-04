@@ -4,65 +4,32 @@ h4 {
     font-family: 'Amatic SC', cursive;
     color:rgb(170, 63, 63);
     font-weight: bold;
+    font-size: 50px;
     padding:20px;
 }
 
-
-
-.fa-glass-cheers, .fa-utensils, .fa-coffee {
-    padding:40px;
-}
+ul {
+    list-style:none;
+    margin-left:0;
+    padding-left:0;
+    }
  
- 
- 
- #drinks {
-    /* background-image: url("/assets/images/drinks.jpeg");
-    background-size: cover; */
-    background-color:rgba(236, 212, 195, 0.5);
-
-}
- 
-
-#starter {
-    /* background: url("/assets/images/starter.jpeg");
-    background-size:cover; */
-    background-color:rgba(236, 212, 195, 0.5);
-
-} 
-
-
-
-#plate {
-    /* background: url("/assets/images/main.jpg");
-    background-size:cover; */
-     background-color:rgba(236, 212, 195, 0.5);
-    
-}
-
-
-#salse {
-/* 
-    background: url("/assets/images/salse.jpeg");
-    background-size:cover; */
    
+.category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.subcategory {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin: 10px;
+    min-width: 20%;
+    max-width: 33%;
     background-color:rgba(236, 212, 195, 0.5);
-
-} 
-
-
- #dessert {
-    /* background:url("https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1460&q=80")no-repeat center;
-    background-size :cover;
-    opacity:0.5; */
-    
-    background-color:rgba(236, 212, 195, 0.5);
-
 }
 
-
-#coffee {
-    /* background:url("https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")no-repeat center;
-    background-size :cover;
-    opacity:0.5; */
-    background-color:rgba(236, 212, 195, 0.5);
-} 
+.subcategory > div {
+    padding: 5px;
+}

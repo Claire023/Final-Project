@@ -19,7 +19,7 @@ export class ContactService {
     }
 
   sendContact(email:string, nom:string, sujet:string, message:string):Observable<any> {
-  
+    
      return this.http.post<Contact>(`${environment.backUrl}?controller=contact&action=addContact` , {email, nom, sujet, message} );
   
            

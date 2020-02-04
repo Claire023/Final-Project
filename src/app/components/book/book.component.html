@@ -1,45 +1,44 @@
 
-<!-- nombre de personnes liste déroulante
-date calendrier qui s'affiche 
-heure 
-puis bouton de validation réserver 
-
-identification user
-
-déjà inscrits? -->
-
 <div class="container">
-  <form action="" class="m-4">
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label" >Nombre de personnes</label>
-      <select class="form-control" class="col-sm-10">
-        <option selected>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-      </select> 
-    </div>
-  
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Date</label>
-        <input type="date" class="form-control col-sm-10">
-    </div>
-  
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Heure</label>
-        <input type="time" class="form-control col-sm-10">
-    </div>
-  
+  <h3>Reservez votre table dès maintenant</h3>
 
-    <button routerLink="/register" type="submit" class="btn btn-danger" id="book">Réserver maintenant</button>
-  </form>
+     <form class="form" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+<!-- 
+      <div class="form-group">
+      <label for="personNumber">Nombre de Personnes</label>
+      <select type="number" name="personNumber" class="form-control rounded-0" formControlName="personNumber">  
+          <option value=1 selected >1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+          <option value=6>6</option>
+          <option value=7>7</option>
+          <option value=8>8</option>
+          <option value=9>9</option>
+          <option value=10>10</option>
+        </select> 
+      </div> -->
+   
+
+    <div class="form-group">
+      <label>Date*</label>
+      <input type="date" useValueAsDate class="form-control rounded-0" formControlName="date">
+    </div> 
+
+    <!-- <div class="form-group">
+      <label>Heure</label>
+      <input type="time"  name="time" class="form-control rounded-0" formControlName="hour">
+    </div>-->
+
+     <div class="form-group">
+      <label>Téléphone*</label>
+       <input type="text" name="phone" class="form-control rounded-0" formControlName="phone">
+    </div> 
+    <button  type="submit" class="btn btn-danger float-right" [disabled]="bookForm.invalid">Réserver</button>
+    <!-- [disabled]="bookForm.invalid -->
+  </form> 
+
 </div>
 
-
-<p>Une fois loguée : reversation confirmée ! envoi mail automatique client et admin</p>

@@ -18,8 +18,7 @@
               <app-loading-spinner></app-loading-spinner>
             </div>
 
-            <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
-               
+            <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">              
               <div class="form-group">
                 <label for="email">Email*</label>
                 <input type="email"  name="email" class="form-control rounded-0" formControlName="email" >
@@ -27,8 +26,6 @@
                   <div *ngIf="(mail.errors?.email || mail.errors?.required) && mail.dirty" class="alert alert-danger">
                     *email requis
                   </div>
-             
-
               </div>
               <div class="form-group">
                 <label>Mot de passe*</label>

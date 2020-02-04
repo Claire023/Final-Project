@@ -1,8 +1,9 @@
 export class Book {
     constructor(
-        public num : number,
+        public personNumber : any,
         public date : string,
         public hour : string,
+        public phone: string
     ){}
 }
 

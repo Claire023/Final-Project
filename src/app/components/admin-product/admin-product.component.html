@@ -8,6 +8,54 @@
 
   <button (click)="update()">modifier</button>
   <button (click)="delete()">supprimer</button>
-
-
 </p> -->
+
+
+  <h2 class="m-4">Liste des Produits<button class=" ml-2 btn btn-danger" (click)="addProduct()"> Ajouter un Produit</button></h2>
+  
+      <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Nom</th>
+      <th>Description</th>
+      <th>Sous-catégorie</th>
+      <th>Catégorie</th>
+      <th>Modifier</th>
+      <th>Supprimer</th>
+    </tr>
+    </thead>
+
+    <tbody> 
+     <tr *ngFor="let product of products">
+      <app-admin-edit-product [product]="product"></app-admin-edit-product>
+        <td>
+          {{ product.ID }} 
+        </td>
+        <td>
+          {{ product.name }} 
+        </td>
+        <td>
+          {{ product.description }} 
+        </td>
+        <td>
+          {{ product.sub_category_name }} 
+        </td>
+        <td>
+          {{ product.category_name }} 
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="editProduct()">editer</button>
+        </td>
+        <td>
+          <button class="btn btn-primary">supprimer</button>
+      </tr> 
+    </tbody> 
+    
+
+      <!-- <td><button class="btn btn-success" (click)="deleteProduct(user)">Supprimer</button>
+    </tr> -->
+   
+    
+  </table>
+ 
