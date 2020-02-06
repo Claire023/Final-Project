@@ -11,7 +11,7 @@
 </p> -->
 
 
-  <h2 class="m-4">Liste des Produits<button class=" ml-2 btn btn-danger" (click)="addProduct()"> Ajouter un Produit</button></h2>
+  <h2 class="m-4">Liste des Produits<button class=" ml-2 btn btn-danger" (click)="addProduct()">Ajouter un Produit</button></h2>
   
       <table class="table table-striped">
     <thead>
@@ -28,7 +28,7 @@
 
     <tbody> 
      <tr *ngFor="let product of products">
-      <app-admin-edit-product [product]="product"></app-admin-edit-product>
+      <!-- <app-admin-edit-product [product]="product"></app-admin-edit-product> -->
         <td>
           {{ product.ID }} 
         </td>
@@ -45,7 +45,7 @@
           {{ product.category_name }} 
         </td>
         <td>
-          <button class="btn btn-primary" (click)="editProduct()">editer</button>
+          <button class="btn btn-primary" (click)="editProduct(product)">editer</button>
         </td>
         <td>
           <button class="btn btn-primary">supprimer</button>

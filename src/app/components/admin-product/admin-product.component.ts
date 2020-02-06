@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AdminProductComponent implements OnInit {
 
-  products: {};
+  products: Product[];
 
   constructor(private menuService: MenuService, private router:Router) { }
 
@@ -35,8 +35,13 @@ export class AdminProductComponent implements OnInit {
     return 0;
   }
 
+  addProduct(){
+    this.router.navigate(['add-product']);
+  }
 
-  editProduct() {
+
+  editProduct(product:Product): void {
+    window.localStorage.setItem("editProductId", product.ID.toString());
     this.router.navigate(['edit-product']);
     
   };

@@ -1,0 +1,45 @@
+<h2>Ajouter un produit</h2>
+
+
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <div class="container" id="add-product">
+   <div class="row">
+      <div class="col-12 col-md-6" class="contact">
+
+        <div class="form-group">
+          <label for="name">Nom du produit : </label>
+            <input class="form-control" type="text"  placeholder="nom du produit*" formControlName="name"> 
+        </div>
+        <div class="form-group">
+          <label for="description">Description du produit : </label>
+            <input class="form-control" type="description" placeholder="description du produit" formControlName="description">
+        </div> 
+        
+        <div class="form-group">
+          <label for=" id_sub_category"> Sous-Catégorie : </label>
+            <select class="form-control" formControlName="id_sub_category"> 
+              <option *ngFor="let subCategory of productSubCategories" [value]=subCategory.ID>{{ subCategory.name}}</option>
+            </select>
+        </div> 
+
+         <div class="form-group">
+          <label for="id_cat"> Catégorie : </label>
+            <select class="form-control" placeholder="catégorie" formControlName="id_cat"> 
+              <option *ngFor="let category of productCategories" [value]="category.ID">{{ category.name }}</option>
+            </select>
+        </div> 
+
+
+      <button type="submit" class="btn btn-danger m-3">Ajouter Produit</button>
+      
+       
+          <!-- 
+          Faire les formBuilder
+          Faire la méthode onSubmit et tester -->
+         </div> 
+
+        </div> 
+
+      </div> 
+
+</form> 

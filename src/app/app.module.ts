@@ -37,6 +37,7 @@ import { AdminGuardService } from './services/admin-guard.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { AdminProductComponent } from './components/admin-product/admin-product.component';
 import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
+import { AdminAddProductComponent } from './components/admin-add-product/admin-add-product.component';
 
 
 const ROUTES: Route[] = [
@@ -64,6 +65,10 @@ const ROUTES: Route[] = [
   {path:'edit-product',
   canActivate: [AdminGuardService],
   component:AdminEditProductComponent},
+  {path:'add-product', 
+  canActivate: [AdminGuardService], 
+  component:AdminAddProductComponent
+},
   {path:'**', component:PagenotfoundComponent},
 ];
 
@@ -87,7 +92,8 @@ const ROUTES: Route[] = [
     LoadingSpinnerComponent,
     MenuComponent,
     AdminProductComponent,
-    AdminEditProductComponent
+    AdminEditProductComponent,
+    AdminAddProductComponent
   
   ],
   imports: [
