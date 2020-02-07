@@ -1,4 +1,7 @@
 <h2>Ajouter un produit</h2>
+<div>
+  <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a> 
+</div>
 
 
 <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
@@ -30,12 +33,17 @@
         </div> 
 
 
-      <button type="submit" class="btn btn-danger m-3">Ajouter Produit</button>
+      <button (click)="displayMessage()"type="submit" class="btn btn-danger m-3">Ajouter Produit</button>
+
+      <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+          <strong>Votre produit a bien été ajouté !</strong>
+            <div>
+              <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a> 
+            </div>
+        </div>
       
-       
-          <!-- 
-          Faire les formBuilder
-          Faire la méthode onSubmit et tester -->
+  
          </div> 
 
         </div> 

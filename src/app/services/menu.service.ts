@@ -28,6 +28,11 @@ addProducts(name:string, description:string, id_cat:number, id_sub_category:numb
   return this.http.post<Product>(`${environment.backUrl}?controller=product&action=addProduct` , {name, description, id_cat, id_sub_category});
 }
 
+
+deleteProducts(ID:number):Observable<any>{
+  return this.http.delete<Product>(`${environment.backUrl}?controller=product&action=deleteProduct&ID=${ID}`);
+}
+
 //Je récupère tout mes items présentés pour la page d'édition
 getCategories():Observable<ProductCategory[]>{
   return this.http.get<ProductCategory[]>(`${environment.backUrl}?controller=product&action=getCategory`);
@@ -39,3 +44,5 @@ getSubCategories():Observable<ProductSubCategory[]>{
   return this.http.get<ProductSubCategory[]>(`${environment.backUrl}?controller=product&action=getSubCategory`);
   }
 } 
+
+

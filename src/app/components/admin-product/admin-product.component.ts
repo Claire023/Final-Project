@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { MenuService } from 'src/app/services/menu.service';
-import { KeyValue } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -29,22 +28,26 @@ export class AdminProductComponent implements OnInit {
     )
   }
 
-  // Retourne l'ordre des objets au lieu d'un ordre par défaut qui fout le bordel
-  //https://stackoverflow.com/questions/52793944/angular-keyvalue-pipe-sort-properties-iterate-in-order
-  sortNull() {
-    return 0;
-  }
 
   addProduct(){
     this.router.navigate(['add-product']);
   }
 
 
-  editProduct(product:Product): void {
-    window.localStorage.setItem("editProductId", product.ID.toString());
-    this.router.navigate(['edit-product']);
-    
-  };
+//https://www.devglan.com/angular/angular-6-example
+  deleteProduct(product : Product) {
+
+    console.log("deleted");
+    this.menuService.deleteProducts(product.ID).subscribe(
+      data => {
+        this.products = this.products.filter(p => p !== product)
+      })
+  }
+
+
+  editProduct(productID:number){
+    this.router.navigate(['edit-product', productID]);
+  }
 
   // update() {
   //   console.log("update du produit" + this.product.name + "...");

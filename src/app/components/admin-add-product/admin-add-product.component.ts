@@ -19,6 +19,9 @@ export class AdminAddProductComponent implements OnInit {
   productCategories: ProductCategory[];
   productSubCategories:ProductSubCategory[];
 
+//Montre le message lorsque produit modifié avec succès appuie sur bouton valider changements
+   displayConfirmedChanges = false;
+
 //formBuilder declaration via formControlName
   name : FormControl;
   description: FormControl;
@@ -52,7 +55,6 @@ export class AdminAddProductComponent implements OnInit {
       id_cat:this.id_cat,
       id_sub_category:this. id_sub_category    
     });
-
 
   }
 
@@ -90,9 +92,11 @@ export class AdminAddProductComponent implements OnInit {
   }
 
 
+  //Pour récupérer les select
+  //https://stackoverflow.com/questions/47011521/angular-4-select-default-value-in-dropdown-reactive-forms
+
   onSubmit(){
     if(this.addProductForm.valid){
-      // console.log("produit ajouté");
       let pro = this.addProductForm.value as Product;
       this.menuService.addProducts(this.name.value, this.description.value,this.id_cat.value, this.id_sub_category.value)
         .subscribe(
@@ -101,6 +105,11 @@ export class AdminAddProductComponent implements OnInit {
         );
       console.log(pro);
     }
+  }
+
+
+  displayMessage() {
+    this.displayConfirmedChanges = true;
   }
 
 }

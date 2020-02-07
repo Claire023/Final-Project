@@ -72,7 +72,7 @@ export class SectionComponent implements OnInit {
           error=> console.log(error) 
         );
      }
-   }
+   } 
 
    displayMessage() {
      this.displayConfirmedSend = true;
