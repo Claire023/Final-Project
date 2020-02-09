@@ -8,10 +8,11 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 import { MatSelectModule}from '@angular/material';
 import { MatOptionModule}from '@angular/material';
 import { MatIconModule}from '@angular/material/icon';
-
+import { MatTableModule} from '@angular/material/table';
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
@@ -38,6 +39,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AdminProductComponent } from './components/admin-product/admin-product.component';
 import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
 import { AdminAddProductComponent } from './components/admin-add-product/admin-add-product.component';
+import { AdminAddCategoryComponent } from './components/admin-add-category/admin-add-category.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 const ROUTES: Route[] = [
@@ -62,12 +65,16 @@ const ROUTES: Route[] = [
   {path:'admin-menu',
   canActivate: [AdminGuardService],
   component:AdminProductComponent},
-  {path:'edit-product',
+  {path:'edit-product/:id',
   canActivate: [AdminGuardService],
   component:AdminEditProductComponent},
   {path:'add-product', 
   canActivate: [AdminGuardService], 
   component:AdminAddProductComponent
+},
+{path:'add-category', 
+canActivate: [AdminGuardService], 
+component:AdminAddCategoryComponent
 },
   {path:'**', component:PagenotfoundComponent},
 ];
@@ -93,7 +100,9 @@ const ROUTES: Route[] = [
     MenuComponent,
     AdminProductComponent,
     AdminEditProductComponent,
-    AdminAddProductComponent
+    AdminAddProductComponent,
+    AdminAddCategoryComponent,
+    AlertComponent
   
   ],
   imports: [
@@ -104,9 +113,11 @@ const ROUTES: Route[] = [
     MatCheckboxModule,
     MatRadioModule,
     MatFormFieldModule ,
+    MatInputModule,
     MatSelectModule,
     MatOptionModule,
     MatIconModule,
+    MatTableModule,
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),

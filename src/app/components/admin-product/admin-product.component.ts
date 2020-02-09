@@ -40,7 +40,8 @@ export class AdminProductComponent implements OnInit {
     console.log("deleted");
     this.menuService.deleteProducts(product.ID).subscribe(
       data => {
-        this.products = this.products.filter(p => p !== product)
+        this.products = data;
+        //je récupère les nouvelles data
       })
   }
 
@@ -49,12 +50,15 @@ export class AdminProductComponent implements OnInit {
     this.router.navigate(['edit-product', productID]);
   }
 
+
+
+  handleCategory(){
+    this.router.navigate(['add-category']);
+  }
+
   // update() {
   //   console.log("update du produit" + this.product.name + "...");
   // }
 
-  // delete() {
-  //   console.log("suppression du produit" + this.product.name + "...");
-  // }
-
+  
 }

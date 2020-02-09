@@ -112,4 +112,9 @@ export class AdminAddProductComponent implements OnInit {
     this.displayConfirmedChanges = true;
   }
 
+
+  backToProductList(){
+    this.router.navigate(['admin-menu']);
+  }
+
 }

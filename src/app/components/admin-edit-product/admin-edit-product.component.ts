@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { MenuService } from 'src/app/services/menu.service';
 import { FormGroup, FormBuilder, Validators, FormControlName, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ProductCategory } from 'src/app/models/productCategory';
 import { ProductSubCategory } from 'src/app/models/productSubCategory';
+import { switchMap} from 'rxjs/operators';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class AdminEditProductComponent implements OnInit {
 // @Input()
 // product: Product;
 
-products: Product;
+product: Product;
 productCategories: ProductCategory[];
 productSubCategories:ProductSubCategory[];
 
@@ -30,7 +31,7 @@ id_cat: FormControl;
 id_sub_category: FormControl;
 editProduct:FormGroup
 
-  constructor(private menuService: MenuService,private fb: FormBuilder,private router:Router) { 
+  constructor(private menuService: MenuService,private fb: FormBuilder,private router:Router, private route: ActivatedRoute) { 
 
     this.name = this.fb.control("", [
       Validators.required
@@ -57,25 +58,23 @@ editProduct:FormGroup
     });
 
 
-
-
-
-
-
-
   }
 
   ngOnInit() {
-   this.getProductList();
-   this.getCategoryList();
-   this.getSubCategoryList();
+    this.getProductById(this.route.snapshot.paramMap.get('id'));
   }
 
-  getProductList() {
-    //tu t'abonnes à l'observable car tu as un traitement asynchrone, tu dois t'abonner à l'observable pour savoir quand ton traitement arrives
-    this.menuService.getProducts().subscribe(
-      (products: any) => {
-        this.products = products
+  
+
+  getProductById(id:string){
+    this.menuService.getProductById(id).subscribe(
+      (product) => {
+        this.product = product;
+        this.getCategoryList();
+        this.editProduct.get('name').setValue(product.name);
+        this.editProduct.get('description').setValue(product.description);
+        this.editProduct.get('id_cat').setValue(product.id_cat);
+        this.editProduct.get('id_sub_category').setValue(product.id_sub_category);
       }
     )
   }
@@ -84,7 +83,8 @@ editProduct:FormGroup
   getCategoryList(){
     this.menuService.getCategories().subscribe(
       (productCategories:ProductCategory[]) => {
-        this.productCategories = productCategories
+        this.productCategories = productCategories;
+        this.getSubCategoryList();
       }
     )
   }
@@ -99,15 +99,19 @@ editProduct:FormGroup
   }
 
 
-// onSubmit(){
-//   this.menuService.updateProducts(this.editProduct.value)
-//   .subscribe(
-//     (data)=> console.log(data),
-//     error=> console.log(error) 
-//   );
+onSubmit(){
+  if(this.editProduct.valid){
+  this.menuService.updateProducts(this.product.ID, this.name.value, this.description.value,this.id_cat.value, this.id_sub_category.value).subscribe(
+    (data) => console.log(data),
+    error => console.log(error)
+  );
+  console.log(this.editProduct.value)
+
+  }
 }
 
 
 
 
 
+}

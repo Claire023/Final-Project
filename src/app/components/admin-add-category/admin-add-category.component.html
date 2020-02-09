@@ -1,0 +1,25 @@
+<form [formGroup]="addCategoryForm" (ngSubmit)="onAddCategory()">
+  <div class="form-group">
+    <label for="description">Nom de la nouvelle catégorie : </label>
+      <input class="form-control" type="name" placeholder="name" formControlName="name">
+  </div> 
+
+
+  <button (click)="displayMessage()"type="submit" class="btn btn-danger m-3">Ajouter Catégorie</button>
+
+  <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+      <strong>Votre catégorie a bien été créee !</strong>
+        <div>
+          <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a> 
+        </div>
+    </div>
+  
+</form>
+
+<!-- 
+1/Faire methode pour récupérer les catégories 
+2/Ensuite TS 
+3/Tester  -->
+
+

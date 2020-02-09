@@ -1,53 +1,59 @@
-<h2>Ajouter un produit</h2>
-<div>
-  <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a> 
-</div>
 
 
-<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
-  <div class="container" id="add-product">
-   <div class="row">
-      <div class="col-12 col-md-6" class="contact">
+<div class="container" class="mx-auto" style="width:800px;">
 
-        <div class="form-group">
-          <label for="name">Nom du produit : </label>
-            <input class="form-control" type="text"  placeholder="nom du produit*" formControlName="name"> 
-        </div>
-        <div class="form-group">
-          <label for="description">Description du produit : </label>
-            <input class="form-control" type="description" placeholder="description du produit" formControlName="description">
-        </div> 
-        
-        <div class="form-group">
-          <label for=" id_sub_category"> Sous-Catégorie : </label>
-            <select class="form-control" formControlName="id_sub_category"> 
-              <option *ngFor="let subCategory of productSubCategories" [value]=subCategory.ID>{{ subCategory.name}}</option>
-            </select>
-        </div> 
-
-         <div class="form-group">
-          <label for="id_cat"> Catégorie : </label>
-            <select class="form-control" placeholder="catégorie" formControlName="id_cat"> 
+  <h2 class="m-5">Ajouter un produit
+    <button type="button" class="btn btn-outline-info m-2" (click)="backToProductList()">Retour à la liste des produits</button>
+    
+  </h2>
+  
+  
+  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()"  class="mx-auto" style="width:500px;">
+    <div class="container" id="add-product">
+    <div class="row">
+        <div class="col-12 col-md-6" class="contact">
+  
+          <div class="form-group">
+            <label for="name">Nom du produit* : </label>
+              <input class="form-control" type="text"   formControlName="name"> 
+          </div>
+          <div class="form-group">
+            <label for="description">Description du produit* : </label>
+              <input class="form-control" type="description" formControlName="description">
+          </div> 
+          <div class="form-group">
+          <label for="id_cat"> Catégorie* : </label>
+            <select class="form-control"  formControlName="id_cat"> 
               <option *ngFor="let category of productCategories" [value]="category.ID">{{ category.name }}</option>
             </select>
         </div> 
-
-
-      <button (click)="displayMessage()"type="submit" class="btn btn-danger m-3">Ajouter Produit</button>
-
-      <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success">
-          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
-          <strong>Votre produit a bien été ajouté !</strong>
-            <div>
-              <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a> 
-            </div>
-        </div>
-      
+          
+          <div class="form-group">
+            <label for=" id_sub_category"> Sous-Catégorie* : </label>
+              <select class="form-control" formControlName="id_sub_category"> 
+                <option *ngFor="let subCategory of productSubCategories" [value]=subCategory.ID>{{ subCategory.name}}</option>
+              </select>
+          </div> 
   
-         </div> 
-
+  
+        <button (click)="displayMessage()"type="submit" class="btn btn-danger m-3">Ajouter Produit</button>
+  
+        <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+            <strong>Votre produit a bien été ajouté !</strong>
+              <div>
+                <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a> 
+              </div>
+          </div>
+        
+    
+          </div> 
+  
+          </div> 
+  
         </div> 
+  
+  </form> 
 
-      </div> 
+</div>  
 
-</form> 

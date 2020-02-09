@@ -23,20 +23,34 @@ getProducts():Observable<any>{
     return this.http.get<any>(`${environment.backUrl}?controller=product&action=getAll`);
     }
 
-//Ajoute mes nouveaux produits dans la base
-addProducts(name:string, description:string, id_cat:number, id_sub_category:number):Observable<any>{
-  return this.http.post<Product>(`${environment.backUrl}?controller=product&action=addProduct` , {name, description, id_cat, id_sub_category});
+//pour la page editer  
+getProductById(ID:string):Observable<Product>{
+  return this.http.get<Product>(`${environment.backUrl}?controller=product&action=getProductById&ID=${ID}`);
+
 }
 
+//Ajoute mes nouveaux produits dans la base
+addProducts(name:string, description:string, id_cat:number, id_sub_category:number):Observable<any>{
+  return this.http.post<Product>(`${environment.backUrl}?controller=product&action=addProduct` , { name, description, id_cat, id_sub_category});
+}
 
-deleteProducts(ID:number):Observable<any>{
-  return this.http.delete<Product>(`${environment.backUrl}?controller=product&action=deleteProduct&ID=${ID}`);
+updateProducts(ID: number, name:string, description:string, id_cat:number, id_sub_category:number):Observable<any>{
+  return this.http.put<Product>(`${environment.backUrl}?controller=product&action=updateProduct`, {ID, name, description, id_cat, id_sub_category} );
+}
+
+deleteProducts(ID:number):Observable<Product[]>{
+  return this.http.delete<Product[]>(`${environment.backUrl}?controller=product&action=deleteProduct&ID=${ID}`);
 }
 
 //Je récupère tout mes items présentés pour la page d'édition
 getCategories():Observable<ProductCategory[]>{
   return this.http.get<ProductCategory[]>(`${environment.backUrl}?controller=product&action=getCategory`);
   }
+
+//Ajoute mes nouvelles categories dans la base
+addCategories(name:string):Observable<any>{
+  return this.http.post<ProductCategory>(`${environment.backUrl}?controller=product&action=addCategory` , {name});
+}
 
 
   //Je récupère toutes mes sous-catégories présentés pour la page d'édition
