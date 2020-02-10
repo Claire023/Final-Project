@@ -35,7 +35,7 @@ export class AdminSubCategoryComponent implements OnInit {
   //https://www.devglan.com/angular/angular-6-example
   deleteSubCategory(subCategory : ProductSubCategory) {
 
-    console.log("deleted");
+
     this.menuService.deleteSubCategories(subCategory.ID).subscribe(
       data => {
         this.subCategory = data;
@@ -44,5 +44,16 @@ export class AdminSubCategoryComponent implements OnInit {
   }
 
 
+  editSubCategory(categoryID:number){
+    this.router.navigate(['edit-sub-category', categoryID]);
+  }
 
+  backToProductList(){
+    this.router.navigate(['admin-menu']);
+  }
+  
+  handleCategoryList(){
+    this.router.navigate(['admin-category']);
+  }
+  
 }

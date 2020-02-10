@@ -49,4 +49,12 @@ editCategory(categoryID:number){
   this.router.navigate(['edit-category', categoryID]);
 }
 
+backToProductList(){
+  this.router.navigate(['admin-menu']);
+}
+
+handleSubCategoryList(){
+  this.router.navigate(['admin-sub-category']);
+}
+
 }

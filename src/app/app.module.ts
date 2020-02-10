@@ -45,7 +45,7 @@ import { AdminCategoryComponent } from './components/admin-category/admin-catego
 import { AdminEditCategoryComponent } from './components/admin-edit-category/admin-edit-category.component';
 import { AdminSubCategoryComponent } from './components/admin-sub-category/admin-sub-category.component';
 import { AdminAddSubCategoryComponent } from './components/admin-add-sub-category/admin-add-sub-category.component';
-
+import { AdminEditSubCategoryComponent } from './components/admin-edit-sub-category/admin-edit-sub-category.component';
 
 
 const ROUTES: Route[] = [
@@ -97,6 +97,10 @@ component:AdminSubCategoryComponent
 canActivate: [AdminGuardService], 
 component:AdminAddSubCategoryComponent
 },
+{path:'edit-sub-category/:id', 
+canActivate: [AdminGuardService], 
+component:AdminEditSubCategoryComponent
+},
   {path:'**', component:PagenotfoundComponent},
 ];
 
@@ -127,7 +131,8 @@ component:AdminAddSubCategoryComponent
     AdminCategoryComponent,
     AdminEditCategoryComponent,
     AdminSubCategoryComponent,
-    AdminAddSubCategoryComponent
+    AdminAddSubCategoryComponent,
+    AdminEditSubCategoryComponent
   
   ],
   imports: [

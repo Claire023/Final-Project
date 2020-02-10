@@ -25,7 +25,7 @@ name : FormControl;
 description: FormControl;
 id_cat: FormControl;
 id_sub_category: FormControl;
-editProduct:FormGroup
+editProduct:FormGroup;
 
   constructor(private menuService: MenuService,private fb: FormBuilder,private router:Router, private route: ActivatedRoute) { 
 

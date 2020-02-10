@@ -37,7 +37,6 @@ productCategories: ProductCategory[];
 
   onAddCategory(){
     if(this.addCategoryForm.valid){
-      // let pro = this.addCategoryForm.value as ProductCategory;
       this.menuService.addCategories(this.name.value)
         .subscribe(
           (data)=> console.log(data),
@@ -50,5 +49,11 @@ productCategories: ProductCategory[];
 displayMessage(){
   this.displayConfirmedChanges = true;
 }
+
+backToCategoryList(){
+  this.router.navigate(['admin-category']);
+}
+
+
 
 }

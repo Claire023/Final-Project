@@ -65,9 +65,12 @@ export class AdminAddSubCategoryComponent implements OnInit {
 
   }
 
-
   displayMessage() {
     this.displayConfirmedChanges = true;
+  }
+
+  backToSubCategoryList(){
+this.router.navigate(['admin-sub-category']);
   }
 
 

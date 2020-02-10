@@ -13,6 +13,7 @@ export class MenuService {
 
   constructor(private http:HttpClient) { }
 //Je récupère tout mes items présentés dans le menu y conmpris les categories et sous categories
+//Je récupère tout mes items présentés dans le menu y conmpris les categories et sous categories
 getProductsForMenuView():Observable<any>{
   return this.http.get<any>(`${environment.backUrl}?controller=product&action=getAllForMenu`);
   }
@@ -78,9 +79,19 @@ getGlobalSubCategories():Observable<ProductSubCategory[]>{
   return this.http.get<ProductSubCategory[]>(`${environment.backUrl}?controller=product&action=getGlogalSubCategory`);
   }
 
+  //pour la page editer  
+getSubCategoryById(ID:string):Observable<ProductCategory>{
+    return this.http.get<ProductSubCategory>(`${environment.backUrl}?controller=product&action=getSubCategoryById&ID=${ID}`);
+  
+  }
+
   //Ajoute mes nouvelles sous-catégories dans la base
 addSubCategory(name:string, main_cat:number):Observable<any>{
   return this.http.post<ProductCategory>(`${environment.backUrl}?controller=product&action=addSubCategory` , { name, main_cat});
+}
+
+updateSubCategories(ID: number, name:string, main_cat:number):Observable<any>{
+  return this.http.put<Product>(`${environment.backUrl}?controller=product&action=updateSubCategory`, {ID, name, main_cat} );
 }
 
 deleteSubCategories(ID:number):Observable<ProductSubCategory>{
