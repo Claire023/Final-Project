@@ -45,20 +45,17 @@ export class AdminProductComponent implements OnInit {
       })
   }
 
-
   editProduct(productID:number){
     this.router.navigate(['edit-product', productID]);
   }
 
-
-
   handleCategory(){
-    this.router.navigate(['add-category']);
+    this.router.navigate(['admin-category']);
   }
 
-  // update() {
-  //   console.log("update du produit" + this.product.name + "...");
-  // }
 
-  
+  handleSubCategory(){
+    this.router.navigate(['admin-sub-category']);
+  }
+
 }

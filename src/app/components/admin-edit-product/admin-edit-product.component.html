@@ -3,14 +3,6 @@
     <h2 class="text-center">Modifier un produit</h2>
     <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a>
 
-
-    <!-- Solution qui marche à moitié
-    <label for="ID">name</label> : <input name="ID" [(ngModel)]="product.ID" type="text" />
-    <label for="name">name</label> : <input name="name" [(ngModel)]="product.name" type="text" />
-  <label for="description">description</label> : <input name="description" [(ngModel)]="product.description" type="text" />
-  <label for="sub_category_name">Sous-catégorie</label> : <input name="sub_category_name" [(ngModel)]="product.sub_category_name" type="text"/> -->
-
-
      <form *ngIf="product != undefined"[formGroup]="editProduct" (ngSubmit)="onSubmit()">
     
     <div class="form-group">
@@ -42,5 +34,4 @@
      <button class="btn btn-danger">Confirmer modifications</button> 
    </form>  
   
-
 </div>

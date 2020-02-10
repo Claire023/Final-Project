@@ -47,9 +47,24 @@ getCategories():Observable<ProductCategory[]>{
   return this.http.get<ProductCategory[]>(`${environment.backUrl}?controller=product&action=getCategory`);
   }
 
+  //pour la page editer  
+getCategoryById(ID:string):Observable<ProductCategory>{
+  return this.http.get<ProductCategory>(`${environment.backUrl}?controller=product&action=getCategoryById&ID=${ID}`);
+
+}
+
 //Ajoute mes nouvelles categories dans la base
 addCategories(name:string):Observable<any>{
   return this.http.post<ProductCategory>(`${environment.backUrl}?controller=product&action=addCategory` , {name});
+}
+
+updateCategories(ID: number, name:string):Observable<any>{
+  return this.http.put<ProductCategory>(`${environment.backUrl}?controller=product&action=updateCategory`, {ID, name} );
+}
+
+
+deleteCategories(ID:number):Observable<ProductCategory[]>{
+  return this.http.delete<ProductCategory[]>(`${environment.backUrl}?controller=product&action=deleteCategory&ID=${ID}`);
 }
 
 
@@ -57,6 +72,21 @@ addCategories(name:string):Observable<any>{
 getSubCategories():Observable<ProductSubCategory[]>{
   return this.http.get<ProductSubCategory[]>(`${environment.backUrl}?controller=product&action=getSubCategory`);
   }
+
+    //Je récupère toutes mes sous-catégories présentés pour la page ou elles sont listées
+getGlobalSubCategories():Observable<ProductSubCategory[]>{
+  return this.http.get<ProductSubCategory[]>(`${environment.backUrl}?controller=product&action=getGlogalSubCategory`);
+  }
+
+  //Ajoute mes nouvelles sous-catégories dans la base
+addSubCategory(name:string, main_cat:number):Observable<any>{
+  return this.http.post<ProductCategory>(`${environment.backUrl}?controller=product&action=addSubCategory` , { name, main_cat});
+}
+
+deleteSubCategories(ID:number):Observable<ProductSubCategory>{
+    return this.http.delete<ProductSubCategory>(`${environment.backUrl}?controller=product&action=deleteSubCategory&ID=${ID}`);
+  }
+
 } 
 
 

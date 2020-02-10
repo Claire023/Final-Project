@@ -1,0 +1,45 @@
+<div class="container" class="mx-auto" style="width:800px;">
+
+  <h2 class="m-5">Ajouter une sous-catégorie
+    <button type="button" class="btn btn-outline-info m-2" (click)="backToProductList()">Retour à la liste des produits</button>
+    
+  </h2>
+  
+  <form [formGroup]="addSubCategoryForm" (ngSubmit)="onSubmit()"  class="mx-auto" style="width:500px;">
+    <div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6" class="contact">
+  
+          <div class="form-group">
+            <label for="name">Nom de la sous-catégorie* : </label>
+              <input class="form-control" type="text"   formControlName="name"> 
+          </div>
+         
+          <div class="form-group">
+          <label for="id_cat"> Catégorie correspondante* : </label>
+            <select class="form-control"  formControlName="main_cat"> 
+              <option *ngFor="let category of productCategories" [value]="category.ID">{{category.name }}</option>
+            </select>
+        </div> 
+          
+        
+        <button (click)="displayMessage()"type="submit" class="btn btn-danger m-3">Ajouter Sous-catégorie</button>
+  
+        <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+            <strong>Votre sous-catégorie a bien été ajouté !</strong>
+              <div>
+                <a routerLink="/admin-sub-category" routerLinkActive="active" href="nav-link">Retour à la liste des sous-catégories</a> 
+              </div>
+          </div>
+        
+          </div> 
+  
+          </div> 
+  
+        </div> 
+  
+  </form> 
+
+</div>  
+

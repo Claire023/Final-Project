@@ -41,6 +41,11 @@ import { AdminEditProductComponent } from './components/admin-edit-product/admin
 import { AdminAddProductComponent } from './components/admin-add-product/admin-add-product.component';
 import { AdminAddCategoryComponent } from './components/admin-add-category/admin-add-category.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { AdminCategoryComponent } from './components/admin-category/admin-category.component';
+import { AdminEditCategoryComponent } from './components/admin-edit-category/admin-edit-category.component';
+import { AdminSubCategoryComponent } from './components/admin-sub-category/admin-sub-category.component';
+import { AdminAddSubCategoryComponent } from './components/admin-add-sub-category/admin-add-sub-category.component';
+
 
 
 const ROUTES: Route[] = [
@@ -76,6 +81,22 @@ const ROUTES: Route[] = [
 canActivate: [AdminGuardService], 
 component:AdminAddCategoryComponent
 },
+{path:'admin-category', 
+canActivate: [AdminGuardService], 
+component:AdminCategoryComponent
+},
+{path:'edit-category/:id', 
+canActivate: [AdminGuardService], 
+component:AdminEditCategoryComponent
+},
+{path:'admin-sub-category', 
+canActivate: [AdminGuardService], 
+component:AdminSubCategoryComponent 
+},
+{path:'add-sub-category', 
+canActivate: [AdminGuardService], 
+component:AdminAddSubCategoryComponent
+},
   {path:'**', component:PagenotfoundComponent},
 ];
 
@@ -102,7 +123,11 @@ component:AdminAddCategoryComponent
     AdminEditProductComponent,
     AdminAddProductComponent,
     AdminAddCategoryComponent,
-    AlertComponent
+    AlertComponent,
+    AdminCategoryComponent,
+    AdminEditCategoryComponent,
+    AdminSubCategoryComponent,
+    AdminAddSubCategoryComponent
   
   ],
   imports: [

@@ -38,7 +38,6 @@ const expiresAt = moment().add(authResult.exp,'second');
 
 }
 
-
 public logout() {
   localStorage.removeItem("id_token");
   localStorage.removeItem("expires_at");

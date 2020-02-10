@@ -2,10 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { MenuService } from 'src/app/services/menu.service';
 import { FormGroup, FormBuilder, Validators, FormControlName, FormControl } from '@angular/forms';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductCategory } from 'src/app/models/productCategory';
 import { ProductSubCategory } from 'src/app/models/productSubCategory';
-import { switchMap} from 'rxjs/operators';
+
 
 
 @Component({
@@ -15,10 +15,6 @@ import { switchMap} from 'rxjs/operators';
 })
 export class AdminEditProductComponent implements OnInit {
 
-  
-//je fait une communication admin/menu -----> admin-edit-menu (parent/enfant) pour avoir les datas
-// @Input()
-// product: Product;
 
 product: Product;
 productCategories: ProductCategory[];
@@ -79,7 +75,6 @@ editProduct:FormGroup
     )
   }
 
-
   getCategoryList(){
     this.menuService.getCategories().subscribe(
       (productCategories:ProductCategory[]) => {
@@ -88,7 +83,6 @@ editProduct:FormGroup
       }
     )
   }
-
 
   getSubCategoryList(){
     this.menuService.getSubCategories().subscribe(
