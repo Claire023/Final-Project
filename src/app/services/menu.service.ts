@@ -5,13 +5,21 @@ import { environment } from 'src/environments/environment';
 import { Product } from '../models/product';
 import { ProductCategory } from '../models/productCategory';
 import { ProductSubCategory } from '../models/productSubCategory';
+import {MatDialog} from '@angular/material';
+import { AlertComponent } from '../components/alert/alert.component';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, public dialog:MatDialog) { }
+
+  openDialog(){
+    return this.dialog.open(AlertComponent);
+        }
+      
 //Je récupère tout mes items présentés dans le menu y conmpris les categories et sous categories
 //Je récupère tout mes items présentés dans le menu y conmpris les categories et sous categories
 getProductsForMenuView():Observable<any>{

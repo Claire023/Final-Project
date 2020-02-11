@@ -33,15 +33,21 @@ export class AdminSubCategoryComponent implements OnInit {
   }
 
   //https://www.devglan.com/angular/angular-6-example
-  deleteSubCategory(subCategory : ProductSubCategory) {
-
-
-    this.menuService.deleteSubCategories(subCategory.ID).subscribe(
-      data => {
-        this.subCategory = data;
-        //je récupère les nouvelles data
-      })
-  }
+deleteSubCategory(subCategory : ProductSubCategory) {
+    //ouverture de la confirmation de suppression grace à angular Material
+    this.menuService.openDialog().afterClosed().subscribe(
+      result => {
+        //je supprime seulement si confirmer est cliqué
+        if(result == false){
+         this.menuService.deleteSubCategories(subCategory.ID).subscribe(
+            data => {
+            this.subCategory = data;
+          //je récupère les nouvelles data
+        })
+      }
+    }
+  );
+}
 
 
   editSubCategory(categoryID:number){

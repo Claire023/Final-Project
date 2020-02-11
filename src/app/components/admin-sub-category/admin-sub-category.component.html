@@ -1,4 +1,9 @@
 
+  <div class="container">
+
+
+  
+  
   <h2 class="m-4">Liste des Sous-Catégories<button class="ml-2 btn btn-success" (click)="addSubCategory()"><i class="fas fa-plus"></i> Ajouter une sous-catégorie</button>
     <button type="button" class="btn btn-outline-info m-2" (click)="backToProductList()">Retour à la liste des produits</button>
     <button type="button" class="btn btn-outline-info m-2" (click)="handleCategoryList()">Gérer les catégories</button>
@@ -8,7 +13,7 @@
       <thead>
       <tr>
      
-        <th>Id</th>
+        <!-- <th>Id</th> -->
         <th>Nom</th>
         <th>Catégorie Correspondante</th>
         <th>Modifier</th>
@@ -19,9 +24,9 @@
       <tbody> 
        <tr *ngFor="let subCategory of subCategory; let i = index">
        
-          <td>
+          <!-- <td>
             {{ subCategory.ID }} 
-          </td>
+          </td> -->
           <td>
             {{ subCategory.name }} 
           </td>
@@ -39,3 +44,4 @@
       
     </table>
    
+  </div>

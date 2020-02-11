@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 import { Router } from '@angular/router';
 import { ProductCategory } from 'src/app/models/productCategory';
-import { throwMatDuplicatedDrawerError } from '@angular/material';
+
 
 @Component({
   selector: 'app-admin-category',
@@ -35,15 +35,20 @@ export class AdminCategoryComponent implements OnInit {
 
  //https://www.devglan.com/angular/angular-6-example
  deleteCategory(category : ProductCategory) {
-
-  console.log("deleted");
-  this.menuService.deleteCategories(category.ID).subscribe(
-    data => {
-      this.categories = data;
-      //je récupère les nouvelles data pour les afficher
-    })
+    //ouverture de la confirmation de suppression grace à angular Material
+    this.menuService.openDialog().afterClosed().subscribe(
+        result => {
+          //je supprime seulement si confirmer est cliqué
+          if(result == false){
+          this.menuService.deleteCategories(category.ID).subscribe(
+      data => {
+        this.categories = data;
+        //je récupère les nouvelles data pour les afficher
+      })
+    }
+  }
+    );
 }
-
 
 editCategory(categoryID:number){
   this.router.navigate(['edit-category', categoryID]);

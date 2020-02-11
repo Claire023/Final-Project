@@ -8,11 +8,14 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material';
 import { MatSelectModule}from '@angular/material';
 import { MatOptionModule}from '@angular/material';
 import { MatIconModule}from '@angular/material/icon';
 import { MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
@@ -30,7 +33,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { TestComponent } from './components/test/test.component';
 import { Test2Component } from './components/test2/test2.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './services/authGuard.service';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptorService } from './services/authInterceptor.service';
@@ -67,6 +69,7 @@ const ROUTES: Route[] = [
   canActivate: [AdminGuardService], 
   component: Test2Component},
   {path:'menu', component:MenuComponent},
+  {path:'alert', component:AlertComponent},
   {path:'admin-menu',
   canActivate: [AdminGuardService],
   component:AdminProductComponent},
@@ -132,8 +135,13 @@ component:AdminEditSubCategoryComponent
     AdminEditCategoryComponent,
     AdminSubCategoryComponent,
     AdminAddSubCategoryComponent,
-    AdminEditSubCategoryComponent
+    AdminEditSubCategoryComponent,
+   
   
+  
+  ],
+  entryComponents: [ AlertComponent, AdminProductComponent, AdminCategoryComponent, AdminSubCategoryComponent
+
   ],
   imports: [
     BrowserModule,
@@ -148,6 +156,8 @@ component:AdminEditSubCategoryComponent
     MatOptionModule,
     MatIconModule,
     MatTableModule,
+    MatDialogModule,
+    MatButtonModule,
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
@@ -158,6 +168,7 @@ component:AdminEditSubCategoryComponent
     providers: [
       AuthGuard,
       AuthService,
+      //je lance un interceptor et je lui spécifie lequel
       {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}
     
     ],

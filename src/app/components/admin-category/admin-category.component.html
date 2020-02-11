@@ -1,3 +1,8 @@
+<div class="container">
+
+
+
+
 <h2 class="m-4">Liste des Catégories<button class="ml-2 btn btn-success" (click)="addCategory()"><i class="fas fa-plus"></i> Ajouter une Catégorie</button>
   <button type="button" class="btn btn-outline-info m-2" (click)="backToProductList()">Retour à la liste des produits</button>
   <button type="button" class="btn btn-outline-info m-2" (click)="handleSubCategoryList()">Gérer les sous-catégories</button>
@@ -6,7 +11,7 @@
       <table class="table table-striped">
     <thead>
     <tr>
-      <th class="hidden">Id</th>
+      <!-- <th>Id</th> -->
       <th>Nom</th>
       <th>Modifier</th>
       <th>Supprimer</th>
@@ -15,9 +20,9 @@
 
     <tbody> 
      <tr *ngFor="let category of categories; let i = index">
-        <td>
+        <!-- <td>
           {{ category.ID }} 
-        </td>
+        </td> -->
         <td>
           {{ category.name }} 
         </td>
@@ -32,4 +37,4 @@
     </tbody> 
     
   </table>
- 
+</div>

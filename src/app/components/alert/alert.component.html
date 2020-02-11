@@ -1,10 +1,10 @@
-<div class="backdrop">
-  <div class="alert-box">
-    <p> {{message}}</p>
-    <div class="alert-box-actions">
-      <button class="btn btn-primary">Fermer</button>
 
-    </div>
+<!-- <button mat-raised-button (click)="openDialog()">Open Dialog</button> -->
 
-  </div>
-</div>
+
+<h2 mat-dialog-title>Voulez-vous vraiment supprimer cet item?</h2>
+<mat-dialog-actions>
+<button mat-button [mat-dialog-close]="false">Confirmer suppression</button>
+<button mat-button [mat-dialog-close]="true">Retour</button>
+
+</mat-dialog-actions>

@@ -1,14 +1,22 @@
 
-  <h2 class="m-4">Liste des Produits<button class="ml-2 btn btn-success" (click)="addProduct()"><i class="fas fa-plus"></i> Ajouter un Produit</button>
+<div class="container">
+
+
+
+<div class="mx-auto" style="width: 800px;">
+  <h2 class="m-4">Liste des Produits<button class="ml-2 btn btn-success" (click)="addProduct()"><i class="fas fa-plus"></i> Ajouter un Produit</button></h2>
+</div>
+<div class="row pb-3">
   <button class="ml-2 btn btn-success"  (click)="handleCategory()">Gérer les Catégories</button>
   <button class="ml-2 btn btn-success"  (click)="handleSubCategory()">Gérer les Sous-Catégories</button>
 
-</h2>
-  
+</div>
+
+
       <table class="table table-striped">
     <thead>
     <tr>
-      <th class="hidden">Id</th>
+      <!-- <th>Id</th> -->
       <th>Nom</th>
       <th>Description</th>
       <th>Sous-catégorie</th>
@@ -20,9 +28,9 @@
 
     <tbody> 
      <tr *ngFor="let product of products; let i = index">
-        <td>
+        <!-- <td>
           {{ product.ID }} 
-        </td>
+        </td> -->
         <td>
           {{ product.name }} 
         </td>
@@ -40,9 +48,9 @@
         </td>
         <td>
           <button (click)="deleteProduct(product)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-        
+       
       </tr> 
     </tbody> 
     
   </table>
- 
+</div>
