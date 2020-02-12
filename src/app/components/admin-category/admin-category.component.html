@@ -1,12 +1,13 @@
 <div class="container">
 
-
-
-
+  <div class="mx-auto" style="width: 800px;">
 <h2 class="m-4">Liste des Catégories<button class="ml-2 btn btn-success" (click)="addCategory()"><i class="fas fa-plus"></i> Ajouter une Catégorie</button>
-  <button type="button" class="btn btn-outline-info m-2" (click)="backToProductList()">Retour à la liste des produits</button>
-  <button type="button" class="btn btn-outline-info m-2" (click)="handleSubCategoryList()">Gérer les sous-catégories</button>
 </h2>
+  </div>
+  <div class="row pb-3">
+  <button type="button" class="btn btn-outline-info m-2" (click)="backToProductList()">Gérer les produits</button>
+  <button type="button" class="btn btn-outline-info m-2" (click)="handleSubCategoryList()">Gérer les sous-catégories</button>
+</div>
   
       <table class="table table-striped">
     <thead>

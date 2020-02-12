@@ -1,15 +1,13 @@
 
 <div id="exemple1" class="col-12">
-
     <div id="exemple2" class="p-4">
         <div id="main" class="m-3">
             <h1>Maria Cantina Tacqueria</h1>
-                <p>Restauration Mexicaine à Montpellier</p>
-    
+                <p class="description">Restauration Mexicaine à Montpellier</p>
              <div class="container" class="links" id="logos">
                  <div class="row">
                      <div class="col-12 col-md-3">
-                        <a href="#history"><fa-icon [icon]="faPepperHot"></fa-icon><figure>Notre histoire{{history}}</figure></a>
+                        <a href="#history"><fa-icon [icon]="faPepperHot"></fa-icon><figure>Notre histoire</figure></a>
                     </div>
         
             <div class="col-12 col-md-3">
@@ -18,13 +16,12 @@
                     
             </div>
              
-        
             <div class="col-12 col-md-3">
                  <a href="#pictures"><fa-icon [icon]="faImage"></fa-icon><figure>Galerie</figure></a>
             </div>
             
             <div class="col-12 col-md-3">
-                <a href="#contact"><fa-icon [icon]="faFileSignature"></fa-icon><figure>Nous Contacter</figure></a>
+                <a href="#find"><i class="fas fa-search-location"></i><figure>Nous Trouver</figure></a>
             </div>
          </div>
         </div>
@@ -37,6 +34,7 @@
                 <a href="https://www.instagram.com/explore/locations/1014502518/maria-cantina/" class="instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
+                <a href="https://www.tripadvisor.fr/Restaurant_Review-g187153-d9774203-Reviews-Maria_Cantina-Montpellier_Herault_Occitanie.html"><i class="fab fa-tripadvisor"></i></a>
             </div>       
         </div>
     </div>
@@ -75,19 +73,56 @@
                 </div>
         </div>
 
+ <!-- gallerie photo -->
+ <div class="container">
+     <app-gallery></app-gallery>
 
- <!--Horaires-->
- <div class="container" class="schedule">
-     <div class="row">
-         <div class="col-12">
-            <h2 class="p-4">HORAIRES</h2>
-            <h5 class="p-4">Tous les jours de 12h00 à 14h00 et de 19h00 à 22h30</h5>
-         </div>
-     </div>
  </div>
 
+
+  <!-- Commndes ou mangeer sur place -->
+
+<div class="container" class="schedule">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h2 class="p-4">COMMANDEZ EN LIGNE</h2>
+            <h5>Faites-vous livrer Maria Cantina à Domicile</h5>
+            <div class="order_images">
+        
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <h2 class="p-4">VENEZ MANGER SUR PLACE1</h2>
+            <h5>Nous vous accueillons tous les jours de 12h00 à 14h00 et de 19h00 à 22h30</h5>
+         </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h2 class="p-4">COMMANDEZ EN LIGNE</h2>
+            <h5>Faites-vous livrer Maria Cantina à Domicile</h5>
+            <div class="order_images">
+        
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <h2 class="p-4">VENEZ MANGER SUR PLACE2</h2>
+            <h5>Nous vous accueillons tous les jours de 12h00 à 14h00 et de 19h00 à 22h30</h5>
+         </div>
+    </div>
+</div>
+
+
+
+
  <!--Where-->
- <div class="container m-5" class="find">
+ <div class="container m-5" class="find" id="find">
          <div class="row">
              <div class="col-12">
               <h2 class="p-4">Nous Trouver</h2>

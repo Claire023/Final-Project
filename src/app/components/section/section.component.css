@@ -24,6 +24,12 @@ font-family: 'Amatic SC', cursive;
 color:rgb(170, 63, 63);
 }
 
+.description{
+    font-size:20px; 
+    color:rgb(170, 63, 63);
+    padding:10px;
+}
+
 .fa-instagram {
     font-size:60px; 
     padding:10px;
@@ -34,6 +40,10 @@ font-size:60px;
 padding:10px;
 }
 
+.fa-tripadvisor {
+font-size:60px;
+padding:10px;
+}
 
 .test2 {
     position:relative; 
@@ -83,6 +93,11 @@ fa-icon {
 
 #history {
  padding-top:60px;
+ border-top: 1px solid rgb(170, 63, 63);
+ border-bottom: 1px solid rgb(170, 63, 63);
+ margin-left:70px;
+ margin-right:70px;    
+ margin-bottom:30px;
 } 
 
 
@@ -124,9 +139,7 @@ button {
 }
 
 .form-control {
-   
    text-align:left;
-  
 }
 
 .contact {
@@ -138,7 +151,7 @@ button {
     background-size: cover;
     background-position-x: center;
     background-position-y: center;
-    /* height:500px; */
+   
 
 }
 
@@ -151,20 +164,23 @@ button {
 
 
 .schedule {
-    
     border-top: 1px solid rgb(170, 63, 63);
     border-bottom: 1px solid rgb(170, 63, 63);
     margin-left:70px;
     margin-right:70px;
-    
-    
+     
 }
 
 
-.find {
-    
+.find { 
     border-bottom: 1px solid rgb(170, 63, 63);
     margin-left:70px;
-    margin-right:70px;
-        
+    margin-right:70px;      
+}
+
+
+#gallery {
+    border-top: 1px solid rgb(170, 63, 63);
+    margin-left:70px;
+    margin-right:70px;    
 }

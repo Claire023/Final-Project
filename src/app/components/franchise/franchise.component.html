@@ -1,23 +1,89 @@
-<h1>Devenez Franchisé</h1>
-<p>blalba</p>
+<div class="container">
+        <h1 class="m-3">Devenez Franchisé</h1>
+        <h3 class="m-3">Pourquoi nous rejoindre?</h3>
 
-<div>
 
-<p>Un Marché en pleine croissance</p>
-<p>Préparation directmeent devant le clieny</p>
-<p>Rapidité</p>
+      <p>Nous nous engageons auprès de nos clients tout en respectant nos valeurs et notre histoire</p>
+    
+        <ul>
+          <li>Préparation sous les yeux des clients</li>
+                        |
+          <li>Une marché en plein essort</li>
+                        |
+          <li>Rapidité du service</li>
+                        |
+          <li>Une offre diversifiée qui plait à tous</li>
+        </ul>
+      
 
+      <div>
+        <h3 class="m-5">Etapes de la franchise : 3 étapes clés </h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">1/ Avant Ouverture</div>
+                <div class="card-body">
+                  <p class="card-text">Aide à la recherche d'emplacement</p>
+                  <p class="card-text">Aide à la recherche de financement</p>
+                  <p class="card-text">Aide au recrutement</p>
+                  <p class="card-text">Formation initiale théorique et pratique avant démarrage de votre activité</p>
+                </div>
+              </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                  <div class="card-header"> 2/ Pendant Ouverture </div>
+                  <div class="card-body">
+                    <p class="card-text">Aide à l'ouverture</p>
+                    <p class="card-text">Mise en place des outils de gestion</p>
+                  </div> 
+                  </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                  <div class="card-header">3/ Après Ouverture</div>
+                  <div class="card-body">
+                    <p class="card-text">Visites régulières</p>
+                    <p class="card-text">Assistance aux problématiques diverses</p>
+                  </div> 
+                  </div>     
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-5">Rejoignez-nous!</h3>
+
+<form [formGroup]="joinForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <input class="form-control" type="text" placeholder="nom*" formControlName="firstname">
+        <input class="form-control" type="text" placeholder="prénom*" formControlName="lastname">
+        <input class="form-control" type="email" placeholder="e-mail*" formControlName="email">
+        <input class="form-control" type="text" placeholder="téléphone*" formControlName="phone">
+      </div>
+      <div class="col-12 col-md-4">
+        <input class="form-control" type="text" placeholder="ville souhaité*" formControlName="city">
+        <input class="form-control" type="text" placeholder="votre apport personnel(en €)" formControlName="intake">
+        <input class="form-control" type="text" placeholder="échéance du projet en mois" formControlName="duration">
+      </div>
+
+
+      <div class="col-12 col-md-4">
+        <textarea name="" id="" cols="50" rows="6" placeholder="votre message" class="form-control"
+          formControlName="message"></textarea>
+
+        <button (click)="displayMessage()" type="submit" class="btn btn-danger m-3">ENVOYER</button>
+
+        <div *ngIf="displayConfirmedSend" class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+          <strong>Vos informations ont bien été prises en compte, vous serez contacté d'ici peu</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 </div>
 
-
-<div>
-  <p>Etapes de la franchise : </p>
-</div>
-
-
-<p>Contactez-Nous</p>
-
-<p>
-
-  nom, prenom, email, ville souhaitée, telephone, apport personnel, franchise, echéance du projet, votre message, envoyer
-</p>

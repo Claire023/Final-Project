@@ -24,7 +24,6 @@ import { SectionComponent } from './components/section/section.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ServiceComponent } from './components/service/service.component';
-import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { BookComponent } from './components/book/book.component';
 import { FranchiseComponent } from './components/franchise/franchise.component';
 import { UserComponent } from './components/user/user.component';
@@ -48,6 +47,7 @@ import { AdminEditCategoryComponent } from './components/admin-edit-category/adm
 import { AdminSubCategoryComponent } from './components/admin-sub-category/admin-sub-category.component';
 import { AdminAddSubCategoryComponent } from './components/admin-add-sub-category/admin-add-sub-category.component';
 import { AdminEditSubCategoryComponent } from './components/admin-edit-sub-category/admin-edit-sub-category.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 
 const ROUTES: Route[] = [
@@ -103,8 +103,7 @@ component:AdminAddSubCategoryComponent
 {path:'edit-sub-category/:id', 
 canActivate: [AdminGuardService], 
 component:AdminEditSubCategoryComponent
-},
-  {path:'**', component:PagenotfoundComponent},
+}
 ];
 
 @NgModule({
@@ -117,9 +116,7 @@ component:AdminEditSubCategoryComponent
     BookComponent,
     FranchiseComponent,
     UserComponent,
-    PagenotfoundComponent,
     ServiceComponent,
-    PagenotfoundComponent,
     LoginComponent,
     RegisterComponent,
     TestComponent,
@@ -136,6 +133,7 @@ component:AdminEditSubCategoryComponent
     AdminSubCategoryComponent,
     AdminAddSubCategoryComponent,
     AdminEditSubCategoryComponent,
+    GalleryComponent,
    
   
   
