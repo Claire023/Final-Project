@@ -59,8 +59,11 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-4">
-        <input class="form-control" type="text" placeholder="nom*" formControlName="firstname">
-        <input class="form-control" type="text" placeholder="prénom*" formControlName="lastname">
+        <div class="form-group">
+        <input class="form-control" type="text" placeholder="nom*" formControlName="lastname">
+
+        </div>
+        <input class="form-control" type="text" placeholder="prénom*" formControlName="firstname">
         <input class="form-control" type="email" placeholder="e-mail*" formControlName="email">
         <input class="form-control" type="text" placeholder="téléphone*" formControlName="phone">
       </div>
@@ -75,7 +78,7 @@
         <textarea name="" id="" cols="50" rows="6" placeholder="votre message" class="form-control"
           formControlName="message"></textarea>
 
-        <button (click)="displayMessage()" type="submit" class="btn btn-danger m-3">ENVOYER</button>
+        <button [disabled]="joinForm.invalid" (click)="displayMessage()" type="submit" class="btn btn-danger m-3">ENVOYER</button>
 
         <div *ngIf="displayConfirmedSend" class="alert alert-dismissible alert-danger">
           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>

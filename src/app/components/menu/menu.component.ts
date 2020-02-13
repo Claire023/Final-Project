@@ -4,7 +4,7 @@ import { Product } from 'src/app/models/product';
 
 import { faPepperHot } from '@fortawesome/free-solid-svg-icons';
 import { faImage, faFileSignature, faUtensils } from '@fortawesome/free-solid-svg-icons';
-// import { KeyValue } from '@angular/common';
+import { KeyValue } from '@angular/common';
 
 
 @Component({
@@ -33,6 +33,7 @@ export class MenuComponent implements OnInit {
     this.menuService.getProductsForMenuView().subscribe(
       (products: any) => {
         this.products = products
+        console.log(products);
    
       }
     )

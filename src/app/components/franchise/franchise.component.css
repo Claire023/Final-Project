@@ -2,6 +2,13 @@
     text-align:center;
 }
 
+
 li {
     list-style: none;
 }
+
+
+input {
+    margin:15px;
+}
+

@@ -17,20 +17,19 @@ import { MatIconModule}from '@angular/material/icon';
 import { MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SectionComponent } from './components/section/section.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ServiceComponent } from './components/service/service.component';
-import { BookComponent } from './components/book/book.component';
+import { CustomerComponent } from './components/customer/customer.component';
 import { FranchiseComponent } from './components/franchise/franchise.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { TestComponent } from './components/test/test.component';
-import { Test2Component } from './components/test2/test2.component';
+import { AdminFranchiseComponent } from './components/admin-franchise/admin-franchise.component';
+import { AdminMessageComponent } from './components/admin-message/admin-message.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { AuthGuard } from './services/authGuard.service';
 import { AuthService } from './services/auth.service';
@@ -53,21 +52,21 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 const ROUTES: Route[] = [
 
   {path:'', component: SectionComponent},
-  {path:'book',
+  {path:'customer',
   canActivate: [AuthGuard],
-   component:BookComponent},
+   component:CustomerComponent},
   {path:'service', component:ServiceComponent},
   {path:'franchise', component:FranchiseComponent},
   {path:'user', component:UserComponent},
   {path:'section', component:SectionComponent},
   {path:'login', component:   LoginComponent},
   {path:'register', component: RegisterComponent},
-  {path:'test', 
+  {path:'admin-franchise', 
   canActivate: [AdminGuardService],
-  component: TestComponent},
-  {path:'test2', 
+  component: AdminFranchiseComponent},
+  {path:'admin-message', 
   canActivate: [AdminGuardService], 
-  component: Test2Component},
+  component: AdminMessageComponent},
   {path:'menu', component:MenuComponent},
   {path:'alert', component:AlertComponent},
   {path:'admin-menu',
@@ -113,14 +112,13 @@ component:AdminEditSubCategoryComponent
     SectionComponent,
     FooterComponent,
     NavComponent,
-    BookComponent,
+    CustomerComponent,
     FranchiseComponent,
     UserComponent,
     ServiceComponent,
     LoginComponent,
     RegisterComponent,
-    TestComponent,
-    Test2Component,
+    AdminFranchiseComponent,
     LoadingSpinnerComponent,
     MenuComponent,
     AdminProductComponent,
@@ -133,6 +131,7 @@ component:AdminEditSubCategoryComponent
     AdminSubCategoryComponent,
     AdminAddSubCategoryComponent,
     AdminEditSubCategoryComponent,
+    AdminMessageComponent,
     GalleryComponent,
    
   

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FranchiseService } from 'src/app/services/franchise.service';
+
 
 @Component({
   selector: 'app-franchise',
@@ -7,6 +9,8 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
   styleUrls: ['./franchise.component.css']
 })
 export class FranchiseComponent implements OnInit {
+
+  
 
   firstname: FormControl;
   lastname: FormControl;
@@ -22,7 +26,7 @@ export class FranchiseComponent implements OnInit {
   //Montre le message lorsque contact appuie sur bouton envoyer
   displayConfirmedSend = false;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, private franchiseService: FranchiseService) {
 
 
     this.firstname= this.fb.control("", [
@@ -58,7 +62,6 @@ export class FranchiseComponent implements OnInit {
       Validators.required,
     ]);
 
-
     this.joinForm = fb.group({
       firstname : this.firstname,
       lastname : this.lastname,
@@ -71,24 +74,24 @@ export class FranchiseComponent implements OnInit {
         
     });
 
-
    }
 
   ngOnInit() {
   }
 
 
-
   onSubmit() {
-    console.log(this.joinForm.value);
-    // if(this.contactForm.valid) {
-    //   console.log('clicked');
-    //     this.contactService.sendContact(this.email.value, this.nom.value,this.sujet.value, this.message.value)
-    //     .subscribe(
-    //       (data)=> console.log(data),
-    //       error=> console.log(error) 
-    //     );
-    //  }
+    // console.log(this.joinForm.value);
+    if(this.joinForm.valid) {
+        this.franchiseService.addFranchise(this.firstname.value, this.lastname.value, this.email.value, this.phone.value, this.city.value, this.intake.value, this.duration.value, this.message.value).subscribe(
+          (data)=> {
+            console.log(data)
+            //je reset le form à l'envoi
+            this.joinForm.reset();
+          },
+          error=> console.log('une erreur est survenue') 
+        );
+     }
    } 
 
    displayMessage() {

@@ -68,7 +68,11 @@ export class SectionComponent implements OnInit {
       console.log('clicked');
         this.contactService.sendContact(this.email.value, this.nom.value,this.sujet.value, this.message.value)
         .subscribe(
-          (data)=> console.log(data),
+          (data)=> {
+            console.log(data);
+            //je reset on form
+            this.contactForm.reset();
+          } ,
           error=> console.log(error) 
         );
      }

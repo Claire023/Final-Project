@@ -1,0 +1,27 @@
+<div class="container">
+   
+      
+      <h3 class="p-2">Liste des prospects pour franchise</h3>
+    <div *ngFor="let franchise of franchise" class="franchise">
+      <p>{{franchise.ID}}</p>
+      
+      <p><span>Nom : </span> {{franchise.lastname}} <span>Prénom: </span>{{franchise.firstname}} <span>Mail : </span> {{franchise.mail}}  <span>Téléphone: </span>{{franchise.phone}}     </p>
+      <p>Ville d'intérêt : {{franchise.city}}</p> 
+      <p>Revenu en € : {{franchise.intake}}</p> 
+      <p>Durée d'échéance en mois : {{franchise.duration}}</p> 
+      <p>Message : {{franchise.message}}</p> 
+
+      <p>Date et heure d'envoi : {{franchise.date}}</p> 
+      <button  (click)="onDelete(franchise)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+    </div>
+  
+  </div>
+  
+
+   
+
+
+
+
+
+

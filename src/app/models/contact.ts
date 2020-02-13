@@ -1,9 +1,9 @@
 export class  Contact {
  
-    id : number;
+    ID : number;
     email : string;
     nom : string;  
     sujet : string;  
     message : string;  
+    date: Date;
 }
-

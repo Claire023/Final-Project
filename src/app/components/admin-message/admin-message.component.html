@@ -1,0 +1,16 @@
+<div class="container">
+  <h3 class="p-2">Liste des messages reçus</h3>
+    <p>Reçu du plus récent au plus ancien</p>
+
+  <div *ngFor="let contacts of contacts" class="message">
+    <!-- <p>{{contacts.ID}}</p> -->
+    <p>Reçu de : {{contacts.nom}}</p>
+    <p>Mail : {{contacts.email}}</p>  
+    <p>Sujet : {{contacts.sujet}}</p> 
+    <p>Message : {{contacts.message}}</p> 
+    <p>Date et heure d'envoi : {{contacts.date}}</p> 
+    <button  (click)="onDelete(contacts)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+  </div>
+
+</div>
+

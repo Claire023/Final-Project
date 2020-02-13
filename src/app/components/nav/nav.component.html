@@ -15,8 +15,8 @@
                                  Admin
                              </button>                            
                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                                 <button class="dropdown-item" type="button" routerLink="/test2" routerLinkActive="active" href="nav-link">Messages Reçus</button>
-                                 <button class="dropdown-item" type="button" routerLink="/test" routerLinkActive="active" href="nav-link">Liste des clients</button>
+                                 <button class="dropdown-item" type="button" routerLink="/admin-message" routerLinkActive="active" href="nav-link">Messages Reçus</button>
+                                 <button class="dropdown-item" type="button" routerLink="/admin-franchise" routerLinkActive="active" href="nav-link">Proposition Franchise</button>
                                  <button class="dropdown-item" type="button" routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Modifier Menu</button>
                            </div>
                       </div>
@@ -27,7 +27,7 @@
                   </li>
                                                       
                    <li class="nav-item"  *ngIf="isAuth()">
-                         <a routerLink="/book" routerLinkActive="active" href="nav-link">Réserver</a>
+                         <a routerLink="/customer" routerLinkActive="active" href="nav-link">Espace Client</a>
                   </li>
                                                       
                   <li class="nav-item">
