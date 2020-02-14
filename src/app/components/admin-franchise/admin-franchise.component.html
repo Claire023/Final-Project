@@ -11,7 +11,7 @@
       <p>Durée d'échéance en mois : {{franchise.duration}}</p> 
       <p>Message : {{franchise.message}}</p> 
 
-      <p>Date et heure d'envoi : {{franchise.date}}</p> 
+      <p>Date et heure d'envoi : {{ franchise.date | date:'dd-MM-yyyy à h:mm a' }}</p> 
       <button  (click)="onDelete(franchise)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
     </div>
   

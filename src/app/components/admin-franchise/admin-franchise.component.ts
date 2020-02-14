@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
 import { Franchise } from 'src/app/models/franchise';
 import { FranchiseService } from 'src/app/services/franchise.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-admin-franchise',
@@ -12,11 +12,13 @@ export class AdminFranchiseComponent implements OnInit {
 
   franchise:Franchise[] = [];
 
-  constructor(private franchiseService:FranchiseService) { }
+
+  constructor(private franchiseService:FranchiseService, private date: DatePipe) { }
 
 
   ngOnInit() {
     this.getFranchiseList();
+    this.formatDate();
   }
   
   
@@ -25,6 +27,11 @@ export class AdminFranchiseComponent implements OnInit {
     this.franchiseService.getFranchiseMessages().subscribe(
       (franchise: Franchise[]) => this.franchise = franchise
       )
+  }
+
+  //https://angular.io/api/common/DatePipe
+  formatDate(){
+    this.date.transform(new Date(), 'dd/MM/yyyy , h:mm a');
   }
 
 

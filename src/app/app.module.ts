@@ -22,7 +22,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SectionComponent } from './components/section/section.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
-import { ServiceComponent } from './components/service/service.component';
+import { CateringComponent } from './components/catering/catering.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { FranchiseComponent } from './components/franchise/franchise.component';
 import { UserComponent } from './components/user/user.component';
@@ -47,6 +47,7 @@ import { AdminSubCategoryComponent } from './components/admin-sub-category/admin
 import { AdminAddSubCategoryComponent } from './components/admin-add-sub-category/admin-add-sub-category.component';
 import { AdminEditSubCategoryComponent } from './components/admin-edit-sub-category/admin-edit-sub-category.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { DatePipe } from '@angular/common';
 
 
 const ROUTES: Route[] = [
@@ -55,7 +56,7 @@ const ROUTES: Route[] = [
   {path:'customer',
   canActivate: [AuthGuard],
    component:CustomerComponent},
-  {path:'service', component:ServiceComponent},
+  {path:'catering', component:CateringComponent},
   {path:'franchise', component:FranchiseComponent},
   {path:'user', component:UserComponent},
   {path:'section', component:SectionComponent},
@@ -115,7 +116,7 @@ component:AdminEditSubCategoryComponent
     CustomerComponent,
     FranchiseComponent,
     UserComponent,
-    ServiceComponent,
+    CateringComponent,
     LoginComponent,
     RegisterComponent,
     AdminFranchiseComponent,
@@ -165,6 +166,7 @@ component:AdminEditSubCategoryComponent
     providers: [
       AuthGuard,
       AuthService,
+      DatePipe,
       //je lance un interceptor et je lui spécifie lequel
       {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}
     

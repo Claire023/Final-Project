@@ -54,23 +54,73 @@
       </div>
 
       <h3 class="m-5">Rejoignez-nous!</h3>
-
 <form [formGroup]="joinForm" (ngSubmit)="onSubmit()">
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-4">
         <div class="form-group">
-        <input class="form-control" type="text" placeholder="nom*" formControlName="lastname">
-
+          <input class="form-control" type="text" placeholder="nom*" formControlName="lastname">
+          <div *ngIf="joinForm.controls['lastname'].invalid && joinForm.controls['lastname'].touched"
+            class="alert alert-danger">
+            <span>
+              Veuillez renseigner votre nom
+            </span>
+          </div>
         </div>
-        <input class="form-control" type="text" placeholder="prénom*" formControlName="firstname">
-        <input class="form-control" type="email" placeholder="e-mail*" formControlName="email">
-        <input class="form-control" type="text" placeholder="téléphone*" formControlName="phone">
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="prénom*" formControlName="firstname">
+          <div *ngIf="joinForm.controls['firstname'].invalid && joinForm.controls['firstname'].touched"
+            class="alert alert-danger">
+            <span>
+              Veuillez renseigner votre prénom
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="email" placeholder="e-mail*" formControlName="email">
+          <div *ngIf="(email.errors?.email || email.errors?.required) && email.dirty" class="alert alert-danger">
+            Rentrez un email valide
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="téléphone*" formControlName="phone">
+          <div *ngIf="joinForm.controls['phone'].invalid && joinForm.controls['phone'].touched"
+            class="alert alert-danger">
+            <span>
+              Veuillez renseigner votre téléphone
+            </span>
+          </div>
+        </div>
       </div>
       <div class="col-12 col-md-4">
-        <input class="form-control" type="text" placeholder="ville souhaité*" formControlName="city">
-        <input class="form-control" type="text" placeholder="votre apport personnel(en €)" formControlName="intake">
-        <input class="form-control" type="text" placeholder="échéance du projet en mois" formControlName="duration">
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="ville souhaité*" formControlName="city">
+          <div *ngIf="joinForm.controls['city'].invalid && joinForm.controls['city'].touched"
+            class="alert alert-danger">
+            <span>
+              Veuillez renseigner une ville d'intérêt
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="votre apport personnel(en €)" formControlName="intake">
+          <div *ngIf="joinForm.controls['intake'].invalid && joinForm.controls['intake'].touched"
+            class="alert alert-danger">
+            <span>
+              Veuillez renseigner l'appport initial dont vous disposez
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="échéance du projet en mois" formControlName="duration">
+          <div *ngIf="joinForm.controls['duration'].invalid && joinForm.controls['duration'].touched"
+            class="alert alert-danger">
+            <span>
+              Renseignez nombre de mois dont vous disposez avant de commencer votre activité
+            </span>
+          </div>
+        </div>
       </div>
 
 
@@ -78,7 +128,8 @@
         <textarea name="" id="" cols="50" rows="6" placeholder="votre message" class="form-control"
           formControlName="message"></textarea>
 
-        <button [disabled]="joinForm.invalid" (click)="displayMessage()" type="submit" class="btn btn-danger m-3">ENVOYER</button>
+        <button [disabled]="joinForm.invalid" (click)="displayMessage()" type="submit"
+          class="btn btn-danger m-3">ENVOYER</button>
 
         <div *ngIf="displayConfirmedSend" class="alert alert-dismissible alert-danger">
           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>

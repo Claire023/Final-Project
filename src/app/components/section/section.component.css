@@ -24,6 +24,10 @@ font-family: 'Amatic SC', cursive;
 color:rgb(170, 63, 63);
 }
 
+h3 {
+    color:rgb(170, 63, 63); 
+}
+
 .description{
     font-size:20px; 
     color:rgb(170, 63, 63);
@@ -133,7 +137,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
     outline: 0 none;
 }
 
-button {
+form button {
     background : rgb(170, 63, 63);
     color:white;
 }
@@ -175,12 +179,43 @@ button {
 .find { 
     border-bottom: 1px solid rgb(170, 63, 63);
     margin-left:70px;
-    margin-right:70px;      
+    margin-right:70px;     
 }
-
 
 #gallery {
     border-top: 1px solid rgb(170, 63, 63);
     margin-left:70px;
     margin-right:70px;    
 }
+
+
+
+.btn-outline-danger {
+    color:rgb(170, 63, 63);
+    border-color:rgb(170, 63, 63) ;
+    margin:20px;
+}
+
+.btn-outline-danger:hover{
+    background-color:rgba(170, 63, 63);
+    color:white;
+     }
+    
+
+.map-responsive {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+        }
+        
+ .map-responsive iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+        }
+
+
+        

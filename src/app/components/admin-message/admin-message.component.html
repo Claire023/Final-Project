@@ -8,7 +8,7 @@
     <p>Mail : {{contacts.email}}</p>  
     <p>Sujet : {{contacts.sujet}}</p> 
     <p>Message : {{contacts.message}}</p> 
-    <p>Date et heure d'envoi : {{contacts.date}}</p> 
+    <p>Date et heure d'envoi : {{contacts.date  | date:'dd-MM-yyyy à h:mm a'}}</p> 
     <button  (click)="onDelete(contacts)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
   </div>
 

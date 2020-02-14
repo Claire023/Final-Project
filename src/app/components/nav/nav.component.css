@@ -4,7 +4,6 @@
 
 
 
-
 a {
     padding:10px;
 
@@ -19,15 +18,38 @@ a {
 }
 
 .dropdown-menu {
-max-width:10px;
+max-width:250px;
 background-color:rgba(170, 63, 63,0.9);
 }
 
+
+
+/* .dropdown-menu {
+    max-width:10px;
+    background-color:rgba(170, 63, 63,0.9);
+    } */
 
 .dropdown-item {
 color:white;
     }
 
 .dropdown-item:hover{
-color:rgb(170, 63, 63);
+color:rgba(170, 63, 63);
  }
+
+ .container {
+    width: 100px;
+    height: auto;
+}
+
+/* resize images */
+.container img {
+    width:  100%;
+    height: auto;
+    margin:10px;
+}
+
+ .dropdown button {
+     font-size:20px;
+ }
+ 

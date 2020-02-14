@@ -80,45 +80,29 @@
  </div>
 
 
-  <!-- Commndes ou mangeer sur place -->
-
+  <!-- Commndes ou manger sur place -->
 <div class="container" class="schedule">
     <div class="row">
         <div class="col-12 col-md-6">
             <h2 class="p-4">COMMANDEZ EN LIGNE</h2>
             <h5>Faites-vous livrer Maria Cantina à Domicile</h5>
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                        <a href="https://deliveroo.fr/fr/menu/montpellier/centre-ville/maria-cantina?day=today&geohash=spfb0707263e&time=ASAP" class="btn btn-outline-danger">Deliveroo</a>
+                        <a href="https://www.ubereats.com/fr-FR/montpellier/food-delivery/maria-cantina/nSaytl2oTOS2mEn5lzttPA/?utm_source=google&utm_medium=cpc-nonbrand&utm_campaign=Search-google-nonbrand_61_481_FR-Montpellier_e_web_acq_cpc_fr_Restaurants%7CSA360_v002_c2_Montpellier&adgroup_name=Restaurants_Maria+Cantina%3Ev002&utm_term=%2Bmaria+%2Bcantina&kw=%2Bmaria+%2Bcantina&campaign_id=71700000025614940&cid=71700000025614940&adgroup_id=58700003193982664&adg_id=58700003193982664&kw_id=p25122846038&kwid=p25122846038&ad_id=256735749081&ext_id=&ran=18065229807697863299&lint_id=&lphy_id=9055317&pos=1t1&dev=c&net=g&match=b&placement=&target=&ds_rl=1254743&ds_rl=1254743&gclid=CjwKCAiAp5nyBRABEiwApTwjXvY3x0PV-DVZHg_x4BdwebOaQcsD877ZLt-mWCYH3qFOGs4TutXelBoCkBYQAvD_BwE&gclsrc=aw.ds" class="btn btn-outline-danger">Uber Eats</a> 
+                </div>
+            </div>
+      
             <div class="order_images">
         
             </div>
         </div>
         <div class="col-12 col-md-6">
-            <h2 class="p-4">VENEZ MANGER SUR PLACE1</h2>
+            <h2 class="p-4">VENEZ MANGER SUR PLACE</h2>
             <h5>Nous vous accueillons tous les jours de 12h00 à 14h00 et de 19h00 à 22h30</h5>
          </div>
     </div>
 </div>
-
-
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <h2 class="p-4">COMMANDEZ EN LIGNE</h2>
-            <h5>Faites-vous livrer Maria Cantina à Domicile</h5>
-            <div class="order_images">
-        
-            </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <h2 class="p-4">VENEZ MANGER SUR PLACE2</h2>
-            <h5>Nous vous accueillons tous les jours de 12h00 à 14h00 et de 19h00 à 22h30</h5>
-         </div>
-    </div>
-</div>
-
-
 
 
  <!--Where-->
@@ -126,25 +110,36 @@
          <div class="row">
              <div class="col-12">
               <h2 class="p-4">Nous Trouver</h2>
-              <iframe class="m-4" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11555.941330893906!2d3.8816434!3d43.606847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcaed4c6d0698cda8!2sMaria%20Cantina!5e0!3m2!1sfr!2sfr!4v1577101926835!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <p>Nous sommes situés au centre-ville</p>
+                <p>11 Rue Aristide Ollivier, 34000 Montpellier</p>
+                <p>Arrêt de tram : Comédie Ligne 1</p>
+              <div class="container-map col-12 p-4">
+                  <div  class="map-responsive">
+                      <iframe class="m-4" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11555.941330893906!2d3.8816434!3d43.606847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcaed4c6d0698cda8!2sMaria%20Cantina!5e0!3m2!1sfr!2sfr!4v1577101926835!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                  </div>
+              </div>
              </div>
          </div>
  </div>
 
 
 <!--CONTACT-->
-
  <h2 class="p-4" >Contact</h2>
-    <p>Contactez-nous au</p>
-        <h4>06 22 56 56 07</h4>
+    <p>Pour effectuer une réservation ou pour toute autre demande,  contactez-nous au</p>
+        <h3>06 22 56 56 07</h3>
             <p>ou avec le formulaire suivant : </p>
 
-
+            
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="container" id="contact">
      <div class="row">
         <div class="col-12 col-md-6" class="contact">
-            <input class="form-control" type="email"  placeholder="e-mail*" formControlName="email"> 
+            <div class="form-group">
+                <input class="form-control" type="email"  placeholder="e-mail*" formControlName="email"> 
+                    <div *ngIf="(email.errors?.email || email.errors?.required) && email.dirty" class="alert alert-danger">
+                        Rentrez un email valide
+                  </div>
+            </div>
             <input class="form-control" type="text" placeholder="nom" formControlName="nom">
             <input class="form-control" type="text" placeholder="sujet" formControlName="sujet">
         </div> 

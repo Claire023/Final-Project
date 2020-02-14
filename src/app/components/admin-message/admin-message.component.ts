@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  ContactService } from 'src/app/services/contact.service';
 import { Contact } from 'src/app/models/contact';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-admin-message',
@@ -11,7 +12,7 @@ export class AdminMessageComponent implements OnInit {
 
   contacts:Contact[] = [];
 
-  constructor(private contactService:ContactService) { }
+  constructor(private contactService:ContactService, private date: DatePipe) { }
 
   ngOnInit() {
     this.getContactList();
@@ -22,6 +23,11 @@ getContactList() {
     this.contactService.getContacts().subscribe(
       (contacts: Contact[]) => this.contacts = contacts
       )
+  }
+
+//https://angular.io/api/common/DatePipe
+formatDate(){
+    this.date.transform(new Date(), 'dd/MM/yyyy , h:mm a');
   }
 
 

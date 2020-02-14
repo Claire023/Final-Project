@@ -19,7 +19,7 @@ export class AuthService {
     this.http.post<any>(`${environment.backUrl}?controller=user&action=connexionUser` , {email, password}).subscribe(
       req => {
         this.setSession(req);
-        this.router.navigate(['/book'])
+        this.router.navigate(['/section'])
       },
         
       err => console.log('authentification échouée')
