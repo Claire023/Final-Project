@@ -1,8 +1,7 @@
 .footer {
     text-align:center;
-    background-color:rgb(170, 63, 63); 
+    background-color:rgb(148, 53, 53); 
     color:white;
-    margin-bottom:0px;
   }
 
   p{
@@ -10,4 +9,35 @@
   }
 
 
+.main-footer {
+  background-color:rgb(170, 63, 63);
+  color:white;
+  padding:40px;
+}
 
+.fa-facebook-square  {
+ font-size: 30px;
+ color:white;
+ margin:3px;
+}
+
+
+.fa-instagram {
+  font-size: 30px;
+  color:white;
+  margin:3px;
+}
+
+
+
+.container {
+  width: 100px;
+  height: auto;
+}
+
+/* resize images */
+.container img {
+  width:  100%;
+  height: auto;
+  margin:10px;
+}

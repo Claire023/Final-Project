@@ -48,6 +48,7 @@ import { AdminAddSubCategoryComponent } from './components/admin-add-sub-categor
 import { AdminEditSubCategoryComponent } from './components/admin-edit-sub-category/admin-edit-sub-category.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { DatePipe } from '@angular/common';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 const ROUTES: Route[] = [
@@ -156,10 +157,12 @@ component:AdminEditSubCategoryComponent
     MatTableModule,
     MatDialogModule,
     MatButtonModule,
+    MatPaginatorModule,
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
     BrowserAnimationsModule, 
+    
     
   ],
 

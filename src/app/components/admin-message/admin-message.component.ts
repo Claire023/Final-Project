@@ -14,6 +14,7 @@ export class AdminMessageComponent implements OnInit {
 
   constructor(private contactService:ContactService, private date: DatePipe) { }
 
+
   ngOnInit() {
     this.getContactList();
   }
@@ -46,5 +47,7 @@ formatDate(){
 }
   );
 }
+
+
 
 }

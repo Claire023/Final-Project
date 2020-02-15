@@ -4,11 +4,12 @@
 
   <div *ngFor="let contacts of contacts" class="message">
     <!-- <p>{{contacts.ID}}</p> -->
-    <p>Reçu de : {{contacts.nom}}</p>
-    <p>Mail : {{contacts.email}}</p>  
-    <p>Sujet : {{contacts.sujet}}</p> 
-    <p>Message : {{contacts.message}}</p> 
-    <p>Date et heure d'envoi : {{contacts.date  | date:'dd-MM-yyyy à h:mm a'}}</p> 
+    <p>
+      <strong>Reçu de : </strong> {{contacts.nom}}</p>
+    <p><strong>Mail :</strong> {{contacts.email}}</p>  
+    <p><strong>Sujet : </strong>{{contacts.sujet}}</p> 
+    <p><strong>Message :</strong> {{contacts.message}}</p> 
+    <p><strong>Date et heure d'envoi :</strong> {{contacts.date  | date:'dd-MM-yyyy à h:mm a'}}</p> 
     <button  (click)="onDelete(contacts)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
   </div>
 

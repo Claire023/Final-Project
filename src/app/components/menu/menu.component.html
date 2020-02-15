@@ -1,17 +1,20 @@
-<div class="container" id="menu">
-    <div *ngFor="let items of products | keyvalue: sortNull">
-        <h4> {{ items.key}}</h4>
-        <div class="category">
-            <div class="subcategory" *ngFor="let items2 of items.value | keyvalue">
-                <h5>
-                    {{items2.key}}
-                </h5>
-                <div *ngFor="let items3 of items2.value">
-                    <h6> {{ items3.name }}</h6>
-                    <p> {{ items3.description }}</p>
+  
+    <div class="bg-img">
+        <div class="container" id="menu">
+            <div *ngFor="let items of products | keyvalue: sortNull">
+                <h4> {{ items.key}}</h4>
+                <div class="category">
+                    <div class="subcategory" *ngFor="let items2 of items.value | keyvalue">
+                        <h5>  {{items2.key}} </h5>
+                        <div *ngFor="let items3 of items2.value" class="product">
+                            <h6> {{ items3.name }}</h6>
+                            <p> {{ items3.description }}</p>
+                        </div>
+                    </div>
+                    
                 </div>
-            </div>
-        </div>
+            </div>  
+        </div> 
+        <app-footer></app-footer>
     </div>
-</div>
-
+    
