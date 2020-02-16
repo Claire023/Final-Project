@@ -14,6 +14,7 @@ export class AdminEditSubCategoryComponent implements OnInit {
 
 productCategories: ProductCategory[];
 productSubCategories:ProductSubCategory;
+displayConfirmedChanges = false;
 
 name:FormControl;
 main_cat:FormControl;
@@ -77,6 +78,12 @@ getCategoryList(){
     
       }
   }
+
+
+  displayMessage(){
+    this.displayConfirmedChanges = true;
+  }
+  
 
 
 }

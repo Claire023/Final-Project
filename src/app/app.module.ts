@@ -25,7 +25,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { CateringComponent } from './components/catering/catering.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { FranchiseComponent } from './components/franchise/franchise.component';
-import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminFranchiseComponent } from './components/admin-franchise/admin-franchise.component';
@@ -59,7 +58,6 @@ const ROUTES: Route[] = [
    component:CustomerComponent},
   {path:'catering', component:CateringComponent},
   {path:'franchise', component:FranchiseComponent},
-  {path:'user', component:UserComponent},
   {path:'section', component:SectionComponent},
   {path:'login', component:   LoginComponent},
   {path:'register', component: RegisterComponent},
@@ -116,7 +114,6 @@ component:AdminEditSubCategoryComponent
     NavComponent,
     CustomerComponent,
     FranchiseComponent,
-    UserComponent,
     CateringComponent,
     LoginComponent,
     RegisterComponent,

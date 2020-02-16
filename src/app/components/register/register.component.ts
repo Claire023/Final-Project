@@ -26,17 +26,16 @@ export class RegisterComponent implements OnInit {
 
   isLoading = false;
   
+  
   constructor(private userService : UserService, private router:Router, private fb:FormBuilder) { 
 
     this.email = this.fb.control("", [
-  
       Validators.required,
       Validators.email,
       
     ]);
     
     this.password = this.fb.control("", [
-    
       Validators.required,
       Validators.minLength(6)
     ]);
@@ -59,8 +58,6 @@ export class RegisterComponent implements OnInit {
 
 
 ngOnInit() {
-  
-  
 }
 
 //getters pour afficher les messages d'erreur
@@ -94,8 +91,9 @@ get passC(){
         this.isLoading = true;
         this.router.navigate(['/login']);
       },
-      error=> {
-        return console.log(error);
+      (httpError)=> {
+        //je récupère mon objet et je récupère le message qui va avec
+        alert(httpError.error.message);
       }    
     );
 

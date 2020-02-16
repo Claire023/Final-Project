@@ -19,6 +19,7 @@ export class AdminEditProductComponent implements OnInit {
 product: Product;
 productCategories: ProductCategory[];
 productSubCategories:ProductSubCategory[];
+displayConfirmedChanges = false;
 
 //formBuilder declaration via formControlName
 name : FormControl;
@@ -105,6 +106,9 @@ onSubmit(){
 }
 
 
+displayMessage(){
+  this.displayConfirmedChanges = true;
+}
 
 
 
