@@ -6,7 +6,15 @@ import { AuthService } from 'src/app/services/auth.service';
 
 
 
-@Component({templateUrl: 'login.component.html'})
+@Component({
+  selector: 'app-login',
+  templateUrl: 'login.component.html',
+  styleUrls: ['./login.component.css']
+
+})
+
+
+
 export class LoginComponent implements OnInit {
 
     email : FormControl;

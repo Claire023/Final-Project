@@ -1,66 +1,75 @@
-<div class="py-5">
+<div class="taco">
+  <div class="py-5">
     <div class="row">
-      <div class="col-md-6 mx-auto">
-        <span class="anchor" id="formLogin"></span>
-        <p>Cumulez des points dans votre espace client et gagnez des cadeaux !!! Créez Votre compte dès maintenant</p>
+    
+        <div class="col-md-6 mx-auto">
+          <span class="anchor" id="formLogin"></span>
+          <!-- form card login -->
+          <div class="card rounded-0 m-5">
+            <div  class="card-header">
+              <h3 class="mb-0">Nouveau Client?</h3>
+              <p class="p-2">Cumulez des points dans votre espace client</p>
+                <p>Gagnez des cadeaux !!! Créez Votre compte dès maintenant</p>
+         
+            <div class="card-body">
+             <div class="alert alert-danger" *ngIf="error">
+               <p>{{ error }}</p>
+             </div>
   
-        <!-- form card login -->
-        <div class="card rounded-0">
-          <div  class="card-header">
-            <h3 class="mb-0">Nouveau Client?</h3>
-       
-          <div class="card-body">
-           <div class="alert alert-danger" *ngIf="error">
-             <p>{{ error }}</p>
-           </div>
-
-            <div *ngIf="isLoading" style="text-align: center;">
-              <app-loading-spinner></app-loading-spinner>
-            </div>
-
-            <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">              
-              <div class="form-group">
-                <label for="email">Email*</label>
-                <input type="email"  name="email" class="form-control rounded-0" formControlName="email" >
-
-                  <div *ngIf="(mail.errors?.email || mail.errors?.required) && mail.dirty" class="alert alert-danger">
-                    *email requis
+              <div *ngIf="isLoading" style="text-align: center;">
+                <app-loading-spinner></app-loading-spinner>
+              </div>
+  
+              <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">              
+                <div class="form-group">
+                  <label for="email">Email*</label>
+                  <input type="email"  name="email" class="form-control rounded-0" formControlName="email" >
+  
+                    <div *ngIf="(mail.errors?.email || mail.errors?.required) && mail.dirty" class="alert alert-danger">
+                      *email requis
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Mot de passe*</label>
+                  <input type="password"  name="password" class="form-control rounded-0" formControlName="password">
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                     votre mot de passe doit contenir 8 caractères minimum avec une majuscule, une minuscule, 1 chiffre  et un caractere spécial.
+                     
+                    </small>
+  
+                  <div *ngIf="(pass.errors?.required || pass.errors?.pattern || pass.errors?.minlength ) && pass.dirty" class="alert alert-danger">
+                    *mot de passe requis avec au moins 6 caractères
                   </div>
-              </div>
-              <div class="form-group">
-                <label>Mot de passe*</label>
-                <input type="password"  name="password" class="form-control rounded-0" formControlName="password">
-
-                <div *ngIf="(pass.errors?.required || pass.errors?.minlength ) && pass.dirty" class="alert alert-danger">
-                  *mot de passe requis avec au moins 6 caractères
                 </div>
-              </div>
-          
-              <div class="form-group">
-                <label>Confirmez votre Mot de passe*</label>
-                <input type="password"  name="passwordConfirm" class="form-control rounded-0" formControlName="passwordConfirm">
-
-                <div *ngIf="registerForm.errors?.differentPassword && passC.dirty" class="alert alert-danger">
-                  *les mots de passe doivent être les mêmes 
-                </div>
-              </div>
-
-              
-              <button   type="submit" class="btn btn-danger float-right"  [disabled]="registerForm.invalid">
-                S'inscrire
-              </button>
-            </form>
-
-           
-          </div>
-          <!--/card-block-->
-        </div>
-        <!-- /form card login -->
+            
+                <div class="form-group">
+                  <label>Confirmez votre Mot de passe*</label>
+                  <input type="password"  name="passwordConfirm" class="form-control rounded-0" formControlName="passwordConfirm">
   
+                  <div *ngIf="registerForm.errors?.differentPassword && passC.dirty" class="alert alert-danger">
+                    *les mots de passe doivent être les mêmes 
+                  </div>
+                </div>
+  
+                
+                <button   type="submit" class="btn btn-danger float-right"  [disabled]="registerForm.invalid">
+                  S'inscrire
+                </button>
+              </form>
+  
+             
+            </div>
+            <!--/card-block-->
+          </div>
+          <!-- /form card login -->
+    
+        </div>
       </div>
+  
+  
+  
     </div>
-
-
-
   </div>
+
 </div>
+

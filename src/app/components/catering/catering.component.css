@@ -2,6 +2,16 @@
     font-family: 'Open Sans', sans-serif;  
 }
 
+
+.catering-img{
+    width:auto;
+    height:400px;
+    background-image: url("src/assets/images/catering.jpg");
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
 .container {
     margin:40px;
 }

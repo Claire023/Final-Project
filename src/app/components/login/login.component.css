@@ -1,0 +1,30 @@
+
+/* https://stackoverflow.com/questions/45329307/how-to-add-a-background-image-in-angular-2-component */
+.taco { 
+    min-height: 100vh;
+    width: 100%;
+    background: url("src/assets/images/taco_draw.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-top:none;
+   
+}
+
+
+.card-header {
+    background:rgba(250, 245, 245, 0.8);
+    color:rgb(148, 53, 53);
+}
+
+label {
+    color:rgb(148, 53, 53);
+}
+
+
+a {
+    color:black;
+}
+
+

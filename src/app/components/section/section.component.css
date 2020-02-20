@@ -89,6 +89,9 @@ fa-icon {
     padding:10px;
 }
 
+#Capa_2{
+    font-size:30px;
+}
 
 #logos {
     font-size:25px;
@@ -98,7 +101,6 @@ fa-icon {
 #history {
  padding-top:60px;
  border-top: 1px solid rgb(170, 63, 63);
- border-bottom: 1px solid rgb(170, 63, 63);
  margin-left:70px;
  margin-right:70px;    
  margin-bottom:30px;
@@ -168,25 +170,28 @@ form button {
 
 
 .schedule {
-    border-top: 1px solid rgb(170, 63, 63);
-    border-bottom: 1px solid rgb(170, 63, 63);
+    /* border-top: 1px solid rgb(170, 63, 63); */
+    /* border-bottom: 1px solid rgb(170, 63, 63); */
     margin-left:70px;
     margin-right:70px;
+    padding:30px;
      
 }
 
 
 .find { 
+    border-top: 1px solid rgb(170, 63, 63);
     border-bottom: 1px solid rgb(170, 63, 63);
     margin-left:70px;
     margin-right:70px;     
 }
 
 #gallery {
-    border-top: 1px solid rgb(170, 63, 63);
+    /* border-top: 1px solid rgb(170, 63, 63);
     margin-left:70px;
-    margin-right:70px;    
+    margin-right:70px;     */
 }
+
 
 
 

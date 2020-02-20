@@ -35,9 +35,15 @@ export class RegisterComponent implements OnInit {
       
     ]);
     
+//At least 8 characters in length
+// Lowercase letters
+// Uppercase letters
+// Numbers
+// Special characters
     this.password = this.fb.control("", [
       Validators.required,
-      Validators.minLength(6)
+      Validators.pattern('(?=\\D*\\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}'),
+      Validators.minLength(8)
     ]);
 
     this.passwordConfirm = this.fb.control("", []);
