@@ -46,8 +46,7 @@ import { AdminSubCategoryComponent } from './components/admin-sub-category/admin
 import { AdminAddSubCategoryComponent } from './components/admin-add-sub-category/admin-add-sub-category.component';
 import { AdminEditSubCategoryComponent } from './components/admin-edit-sub-category/admin-edit-sub-category.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { DatePipe } from '@angular/common';
-import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 const ROUTES: Route[] = [
@@ -154,7 +153,6 @@ component:AdminEditSubCategoryComponent
     MatTableModule,
     MatDialogModule,
     MatButtonModule,
-    MatPaginatorModule,
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
@@ -166,7 +164,6 @@ component:AdminEditSubCategoryComponent
     providers: [
       AuthGuard,
       AuthService,
-      DatePipe,
       //je lance un interceptor et je lui spécifie lequel
       {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}
     

@@ -8,7 +8,6 @@ import { ProductSubCategory } from '../models/productSubCategory';
 import {MatDialog} from '@angular/material';
 import { AlertComponent } from '../components/alert/alert.component';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +19,6 @@ export class MenuService {
     return this.dialog.open(AlertComponent);
         }
       
-//Je récupère tout mes items présentés dans le menu y conmpris les categories et sous categories
 //Je récupère tout mes items présentés dans le menu y conmpris les categories et sous categories
 getProductsForMenuView():Observable<any>{
   return this.http.get<any>(`${environment.backUrl}?controller=product&action=getAllForMenu`);
@@ -44,7 +42,8 @@ addProducts(name:string, description:string, id_cat:number, id_sub_category:numb
 }
 
 updateProducts(ID: number, name:string, description:string, id_cat:number, id_sub_category:number):Observable<any>{
-  return this.http.put<Product>(`${environment.backUrl}?controller=product&action=updateProduct`, {ID, name, description, id_cat, id_sub_category} );
+  return this.http.put<Product>(`${environment.backUrl}?controller=product&action=updateProduct`, 
+  {ID, name, description, id_cat, id_sub_category} );
 }
 
 deleteProducts(ID:number):Observable<Product[]>{

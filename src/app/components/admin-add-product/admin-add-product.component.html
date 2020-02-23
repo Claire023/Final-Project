@@ -7,52 +7,61 @@
     
   </h2>
   
-  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()"  class="mx-auto" style="width:500px;">
+  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()" class="mx-auto" style="width:500px;">
     <div class="container" id="add-product">
-    <div class="row">
+      <div class="row">
         <div class="col-12 col-md-6" class="contact">
-  
           <div class="form-group">
             <label for="name">Nom du produit* : </label>
-              <input class="form-control" type="text"   formControlName="name"> 
+            <input class="form-control" type="text" formControlName="name">
+            <div *ngIf="addProductForm.controls['name'].invalid && addProductForm.controls['name'].touched"
+              class="alert alert-danger">
+              <span>
+                Veuillez renseigner un nom pour le produit
+              </span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="description">Description du produit* : </label>
-              <input class="form-control" type="description" formControlName="description">
-          </div> 
+            <label for="description">Description du produit : </label>
+            <input class="form-control" type="description" formControlName="description">
+          </div>
           <div class="form-group">
-          <label for="id_cat"> Catégorie* : </label>
-            <select class="form-control"  formControlName="id_cat"> 
+            <label for="id_cat"> Catégorie* : </label>
+            <select class="form-control" formControlName="id_cat">
               <option *ngFor="let category of productCategories" [value]="category.ID">{{ category.name }}</option>
             </select>
-        </div> 
-          
+            <div *ngIf="addProductForm.controls['id_cat'].invalid && addProductForm.controls['id_cat'].touched"
+              class="alert alert-danger">
+              <span>
+                Veuillez renseigner une catégorie
+              </span>
+            </div>
+          </div>
           <div class="form-group">
             <label for=" id_sub_category"> Sous-Catégorie* : </label>
-              <select class="form-control" formControlName="id_sub_category"> 
-                <option *ngFor="let subCategory of productSubCategories" [value]=subCategory.ID>{{ subCategory.name}}</option>
-              </select>
-          </div> 
-  
-  
-        <button (click)="displayMessage()"type="submit" class="btn btn-danger m-3">Ajouter Produit</button>
-  
-        <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success">
+            <select class="form-control" formControlName="id_sub_category">
+              <option *ngFor="let subCategory of productSubCategories" [value]=subCategory.ID>{{ subCategory.name}}
+              </option>
+            </select>
+            <div *ngIf="addProductForm.controls['id_cat'].invalid && addProductForm.controls['id_cat'].touched"
+              class="alert alert-danger">
+              <span>
+                Veuillez renseigner une sous-catégorie
+              </span>
+            </div>
+          </div>
+          <button (click)="displayMessage()" type="submit" class="btn btn-danger m-3">Ajouter Produit</button>
+          <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
             <strong>Votre produit a bien été ajouté !</strong>
-              <div>
-                <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a> 
-              </div>
+            <div>
+              <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a>
+            </div>
           </div>
-        
-
-          </div> 
-  
-          </div> 
-  
-        </div> 
-  
-  </form> 
+        </div>
+      </div>
+    </div>
+  </form>
 
 </div>  
 

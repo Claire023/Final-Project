@@ -37,11 +37,11 @@ export class AdminAddProductComponent implements OnInit {
     ]);
 
     this.description = this.fb.control("", [
-      Validators.required
+      
     ]);
 
     this. id_sub_category = this.fb.control("", [
-      Validators.required
+     
     ]);
 
 

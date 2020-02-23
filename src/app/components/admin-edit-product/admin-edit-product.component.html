@@ -3,43 +3,59 @@
     <h2 class="text-center m-5">Modifier un produit</h2>
     <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link" class="btn btn-outline-info m-2">Retour à la liste des produits</a>
 
-     <form *ngIf="product != undefined"[formGroup]="editProduct" (ngSubmit)="onSubmit()">
+    <form  [formGroup]="editProduct" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom du Produit:</label>
+        <input type="text" formControlName="name" placeholder="nom du produit" class="form-control">
+        <div *ngIf="editProduct.controls['name'].invalid && editProduct.controls['name'].touched"
+          class="alert alert-danger">
+          <span>
+            Veuillez renseigner un nom
+          </span>
+        </div>
+      </div>
     
-    <div class="form-group">
-      <label for="name">Nom du Produit:</label>
-      <input type="text" formControlName="name"  placeholder="nom du produit" class="form-control">
-    </div>
-
-   <div class="form-group">
-      <label for="lastName">Description:</label>
-      <input type="text" formControlName="description"  placeholder="description" class="form-control">
-      <!-- on fait ne condition dans les value car sinon ca fait une erreur car il essai d'afficher l'objet avant la vue -->
-    </div>
-
-
-    <div class="form-group">
-      <label for=" id_sub_category"> Sous-Catégorie : </label>
-        <select class="form-control" formControlName="id_sub_category"> 
+      <div class="form-group">
+        <label for="lastName">Description:</label>
+        <input type="text" formControlName="description" placeholder="description" class="form-control">
+      </div>
+    
+    
+      <div class="form-group">
+        <label for=" id_sub_category"> Sous-Catégorie : </label>
+        <select class="form-control" formControlName="id_sub_category">
           <option *ngFor="let subCategory of productSubCategories" [value]=subCategory.ID>{{ subCategory.name}}</option>
         </select>
-    </div> 
+        <div *ngIf="editProduct.controls['id_sub_category'].invalid && editProduct.controls['id_sub_category'].touched"
+          class="alert alert-danger">
+          <span>
+            Veuillez renseigner une sous-catégorie
+          </span>
+        </div>
+      </div>
     
-    <div class="form-group">
-      <label for="id_cat"> Catégorie : </label>
+      <div class="form-group">
+        <label for="id_cat"> Catégorie : </label>
         <select *ngIf="productCategories?.length > 0" class="form-control" formControlName="id_cat">
           <option *ngFor="let category of productCategories" [ngValue]="category.ID">{{ category.name }}</option>
         </select>
-    </div> 
-    
-     <button (click)="displayMessage()" class="btn btn-danger">Confirmer modifications</button> 
-
-     <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success m-2">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
-      <strong>Votre catégorie a bien été modifiée !</strong>
-        <div>
-          <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a> 
+        <div *ngIf="editProduct.controls['id_cat'].invalid && editProduct.controls['id_cat'].touched"
+          class="alert alert-danger">
+          <span>
+            Veuillez renseigner une sous-catégorie
+          </span>
         </div>
-    </div>
-   </form>  
+      </div>
+    
+      <button (click)="displayMessage()" class="btn btn-danger">Confirmer modifications</button>
+    
+      <div *ngIf="displayConfirmedChanges" class="alert alert-dismissible alert-success m-2">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+        <strong>Votre catégorie a bien été modifiée !</strong>
+        <div>
+          <a routerLink="/admin-menu" routerLinkActive="active" href="nav-link">Retour à la liste des produits</a>
+        </div>
+      </div>
+    </form>
   
 </div>

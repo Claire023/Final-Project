@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Franchise } from 'src/app/models/franchise';
 import { FranchiseService } from 'src/app/services/franchise.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-admin-franchise',
@@ -13,12 +12,12 @@ export class AdminFranchiseComponent implements OnInit {
   franchise:Franchise[] = [];
 
 
-  constructor(private franchiseService:FranchiseService, private date: DatePipe) { }
+  constructor(private franchiseService:FranchiseService) { }
 
 
   ngOnInit() {
     this.getFranchiseList();
-    this.formatDate();
+    // this.formatDate();
   }
   
   
@@ -29,12 +28,7 @@ export class AdminFranchiseComponent implements OnInit {
       )
   }
 
-  //https://angular.io/api/common/DatePipe
-  formatDate(){
-    this.date.transform(new Date(), 'dd/MM/yyyy , h:mm a');
-  }
-
-
+ 
    //https://www.devglan.com/angular/angular-6-example
  onDelete(franchise: Franchise,) {
   this.franchiseService.openDialog().afterClosed().subscribe(

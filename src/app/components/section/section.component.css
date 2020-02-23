@@ -3,6 +3,16 @@
 }
 
 
+
+
+
+@media only screen and (max-width: 768px) {
+    #skulls{
+      display:none;
+    }
+  }
+  
+
 a {
     padding:10px;
     text-decoration:none;
@@ -100,8 +110,7 @@ fa-icon {
 
 #history {
  padding-top:60px;
- border-top: 1px solid rgb(170, 63, 63);
- margin-left:70px;
+ /* margin-left:70px; */
  margin-right:70px;    
  margin-bottom:30px;
 } 

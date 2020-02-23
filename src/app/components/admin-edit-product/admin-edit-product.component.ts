@@ -35,7 +35,7 @@ editProduct:FormGroup;
     ]);
 
     this.description = this.fb.control("", [
-      Validators.required
+      
     ]);
 
     this. id_sub_category = this.fb.control("", [
@@ -58,6 +58,7 @@ editProduct:FormGroup;
   }
 
   ngOnInit() {
+    //pour récupérer un parametre dans une url la mon ID 
     this.getProductById(this.route.snapshot.paramMap.get('id'));
   }
 
@@ -96,7 +97,8 @@ editProduct:FormGroup;
 
 onSubmit(){
   if(this.editProduct.valid){
-  this.menuService.updateProducts(this.product.ID, this.name.value, this.description.value,this.id_cat.value, this.id_sub_category.value).subscribe(
+  this.menuService.updateProducts(this.product.ID, this.name.value, this.description.value,this.id_cat.value, this.id_sub_category.value)
+  .subscribe(
     (data) => console.log(data),
     error => console.log(error)
   );

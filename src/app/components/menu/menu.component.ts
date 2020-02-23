@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
-import { Product } from 'src/app/models/product';
-
-import { faPepperHot } from '@fortawesome/free-solid-svg-icons';
-import { faImage, faFileSignature, faUtensils } from '@fortawesome/free-solid-svg-icons';
-import { KeyValue } from '@angular/common';
 
 
 @Component({
@@ -13,11 +8,6 @@ import { KeyValue } from '@angular/common';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  faPepperHot = faPepperHot;
-  faUtensils = faUtensils;
-  faImage = faImage;
-  faFileSignature = faFileSignature;
 
 
   products: {};
@@ -34,13 +24,11 @@ export class MenuComponent implements OnInit {
       (products: any) => {
         this.products = products
         console.log(products);
-   
       }
     )
   }
 
-
-  // Retourne l'ordre des objets au lieu d'un ordre par défaut qui fout le bordel
+  // Retourne l'ordre des objets au lieu d'un ordre par défaut 
   //https://stackoverflow.com/questions/52793944/angular-keyvalue-pipe-sort-properties-iterate-in-order
 sortNull() {
   return 0;
